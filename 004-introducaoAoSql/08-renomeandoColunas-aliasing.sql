@@ -10,4 +10,34 @@ SELECT
 	BrandName AS Marca,
 	ColorName AS Cor
 FROM 
-	DimProduct
+	DimProduct;
+
+
+-- Podemos também suprimir o comando AS e ele funcionará da mesma maneira:
+
+SELECT
+	ProductName Produto,
+	BrandName Marca,
+	ColorName Cor
+FROM 
+	DimProduct;
+
+
+
+-- Caso haja necessidade de coloca um nome do aliases composto (mais de duas palavras) precisaremos
+-- colocar aspas simples('') ou aspas duplas("") no novo nome escolhido, o AS continua sendo opcional:
+
+SELECT
+	ProductName AS 'Nome do Produto',
+	BrandName 'Nome da Marca',
+	ColorName  AS 'Nome da Cor'
+FROM 
+	DimProduct;
+
+
+SELECT
+	ProductName AS "Nome do Produto",
+	BrandName "Nome da Marca",
+	ColorName "Nome da Cor"
+FROM 
+	DimProduct;
