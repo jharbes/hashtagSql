@@ -54,3 +54,12 @@ select
 	BirthDate as 'Data de Nascimento' 
 from
 	dbo.DimCustomer;
+
+
+
+/*
+4. A empresa Contoso precisa fazer contato com os fornecedores de produtos para repor o
+estoque. Você é da área de compras e precisa descobrir quem são esses fornecedores.
+
+Utilize um comando em SQL para retornar apenas os nomes dos fornecedores na tabela
+dimProduct e renomeie essa nova coluna da tabela.*/select distinct Manufacturer as Fornecedor from dbo.DimProduct;
