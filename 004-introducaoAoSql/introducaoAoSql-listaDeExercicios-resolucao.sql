@@ -62,4 +62,16 @@ from
 estoque. Você é da área de compras e precisa descobrir quem são esses fornecedores.
 
 Utilize um comando em SQL para retornar apenas os nomes dos fornecedores na tabela
-dimProduct e renomeie essa nova coluna da tabela.*/select distinct Manufacturer as Fornecedor from dbo.DimProduct;
+dimProduct e renomeie essa nova coluna da tabela.*/select distinct Manufacturer as Fornecedor from dbo.DimProduct;/*5. O seu trabalho de investigação não para. Você precisa descobrir se existe algum produto
+registrado na base de produtos que ainda não tenha sido vendido. Tente chegar nessa
+informação.
+
+Obs: caso tenha algum produto que ainda não tenha sido vendido, você não precisa descobrir
+qual é, é suficiente saber se teve ou não algum produto que ainda não foi vendido.
+*/
+
+select 
+	count(ProductKey) as 'Número de Produtos',
+	(select count(distinct ProductKey) from dbo.FactSales) as 'Número de Produtos Vendidos'
+from
+	dbo.DimProduct;
