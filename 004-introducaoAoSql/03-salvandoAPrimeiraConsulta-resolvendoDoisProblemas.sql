@@ -1,6 +1,7 @@
 -- [SQL Server] Introdução ao SQL
 -- Aula 3 de 15: Salvando a primeira consulta e resolvendo 2 problemas
 
+use ContosoRetailDW; -- podemos escolher o banco de dados para uso também por meio das opções superiores na lista de banco de dados ao lado do botão 'Executar'
 
 -- 1. Antes de executar os códigos, garanta que o banco de dados correto está selecionado no canto superior esquerdo: banco de dados ContosoRetailDW
 
