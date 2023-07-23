@@ -34,3 +34,13 @@ Fabrikam OU da cor Black
 */
 
 select * from DimProduct where BrandName='Litware' or BrandName='Fabrikam' or ColorName='Black';
+
+
+
+/*
+4- Selecione todas as linhas da tabela DimSalesTerritory onde o continente é a Europa
+mas o país NÃO é igual a Itália
+*/
+
+select * from DimSalesTerritory
+where SalesTerritoryGroup='Europe' and not SalesTerritoryCountry='Italy';
