@@ -6,4 +6,11 @@
 -- Quais produtos são da marca 'Contoso' OU são da cor 'White'?
 
 SELECT * FROM DimProduct
-WHERE BrandName = 'Contoso' OR ColorName = 'White'
+WHERE BrandName = 'Contoso' OR ColorName = 'White';
+
+-- Observe que o retorno será de TODOS os produtos da marca 'Contoso' MAIS TODOS os produtos de cor 'White'
+
+
+-- Retorna todos os produtos da marca 'Contoso' e da marca 'Fabrikam'
+SELECT * FROM DimProduct
+WHERE BrandName = 'Contoso' OR BrandName = 'Fabrikam';
