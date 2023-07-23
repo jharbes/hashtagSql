@@ -6,9 +6,14 @@
 -- Quais produtos são da marca 'Fabrikam'?
 
 SELECT * FROM DimProduct
-WHERE BrandName = 'Fabrikam'
+WHERE BrandName = 'Fabrikam';
 
 -- Quais produtos são da cor 'Black'?
 
 SELECT * FROM DimProduct
-WHERE ColorName = 'Black'
+WHERE ColorName = 'Black';
+
+-- Quais produtos são da cor 'Black' e do fornecedor 'Fabrikam'?
+
+SELECT * FROM DimProduct
+WHERE ColorName = 'Black' and BrandName = 'Fabrikam';
