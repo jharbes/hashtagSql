@@ -10,4 +10,4 @@ SELECT
 	UnitPrice AS Preco
 FROM
 	DimProduct
-WHERE UnitPrice >= 1000
+WHERE UnitPrice >= 1000;
