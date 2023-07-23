@@ -6,4 +6,8 @@
 -- Quais funcionários NÃO são do departamento de 'Marketing'?
 
 SELECT * FROM DimEmployee
+WHERE NOT DepartmentName = 'Marketing';
+
+
+SELECT DISTINCT DepartmentName FROM DimEmployee
 WHERE NOT DepartmentName = 'Marketing'
