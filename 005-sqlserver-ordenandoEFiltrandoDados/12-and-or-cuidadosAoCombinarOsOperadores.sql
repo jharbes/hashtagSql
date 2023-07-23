@@ -6,6 +6,14 @@
 -- Exemplo: Selecione todas as linhas da tabela DimProduct onde a cor do Produto pode ser igual a Preto OU Vermelho, MAS a marca deve ser obrigatoriamente igual a Fabrikam.
 
 SELECT * FROM DimProduct
-WHERE (ColorName = 'Black' OR ColorName = 'Red') AND BrandName = 'Fabrikam'
+WHERE (ColorName = 'Black' OR ColorName = 'Red') AND BrandName = 'Fabrikam';
+
+
+SELECT * FROM DimProduct
+WHERE ColorName = 'Black' OR ColorName = 'Red' AND BrandName = 'Fabrikam';
+--WHERE  ColorName = 'Black' OR (ColorName = 'Red' AND BrandName = 'Fabrikam');
 
 -- Obs: Lembre-se de incluir parênteses para agrupar os testes lógicos que você deseja fazer ao mesmo tempo, para assim chegar no resultado que você espera.
+
+-- Veja que a alteração dos parenteses ocasionou na alteração do resultado, quando utilizamos o operador AND de uma só vez em uma expressão ele terá 
+-- a preferencia na expressão
