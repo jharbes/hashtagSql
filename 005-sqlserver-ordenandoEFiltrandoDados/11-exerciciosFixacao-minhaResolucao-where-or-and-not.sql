@@ -25,3 +25,12 @@ from
 	DimProduct
 where
 	BrandName='Contoso' and ColorName='Red' and UnitPrice>=100;
+
+
+
+/*
+3- Selecione todas as linhas da tabela DimProduct com produtos da marca Litware OU da marca 
+Fabrikam OU da cor Black
+*/
+
+select * from DimProduct where BrandName='Litware' or BrandName='Fabrikam' or ColorName='Black';
