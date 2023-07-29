@@ -3,14 +3,13 @@
 use ContosoRetailDW;
 
 /*
-1. Você é responsável por controlar os dados de clientes e de produtos da sua empresa.
-O que você precisará fazer é confirmar se:
+Você é o gerente da área de compras e precisa criar um relatório com as TOP 100 vendas, de
+acordo com a quantidade vendida. Você precisa fazer isso em 10min pois o diretor de compras
+solicitou essa informação para apresentar em uma reunião.
 
-a. Existem 2.517 produtos cadastrados na base e, se não tiver, você deverá reportar ao seu
-gestor para saber se existe alguma defasagem no controle dos produtos.
-
-b. Até o mês passado, a empresa tinha um total de 19.500 clientes na base de controle.
-Verifique se esse número aumentou ou reduziu.
+Utilize seu conhecimento em SQL para buscar essas TOP 100 vendas, de acordo com o total
+vendido (SalesAmount).
 */
 
--- a)
+select top(100) * from FactSales
+order by SalesAmount desc;
