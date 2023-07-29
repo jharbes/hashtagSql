@@ -29,4 +29,45 @@ um segundo critério de desempate (além do peso).
 */
 
 select top(10) * from DimProduct
-order by UnitPrice desc, Weight desc, ProductName desc;
+order by UnitPrice desc, Weight desc, ProductName;
+
+
+
+/*
+3. Você é responsável pelo setor de logística da empresa Contoso e precisa dimensionar o
+transporte de todos os produtos em categorias, de acordo com o peso.
+
+Os produtos da categoria A, com peso acima de 100kg, deverão ser transportados na primeira
+leva.
+
+Faça uma consulta no banco de dados para descobrir quais são estes produtos que estão na
+categoria A.
+
+a) Você deverá retornar apenas 2 colunas nessa consulta: Nome do Produto e Peso.
+
+b) Renomeie essas colunas com nomes mais intuitivos.
+
+c) Ordene esses produtos do mais pesado para o mais leve.
+*/
+
+-- a)
+select ProductName,Weight from DimProduct where weight >= 100;
+
+-- b)
+select
+	ProductName as 'Nome do Produto',
+	Weight as 'Peso do Produto'
+from
+	DimProduct
+where
+	weight >= 100;
+
+-- c)
+select
+	ProductName as 'Nome do Produto',
+	Weight as 'Peso do Produto'
+from
+	DimProduct
+where
+	weight >= 100
+order by weight desc;
