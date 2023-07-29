@@ -103,7 +103,7 @@ select
 from
 	DimStore
 where
-	Status='On';
+	Status='On' and StoreType='Store';
 
 select
 	StoreName as 'Nome da Loja',
@@ -112,4 +112,4 @@ select
 from
 	DimStore
 where
-	Status='On';
+	Status='On' and StoreType='Store';
