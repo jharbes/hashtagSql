@@ -71,3 +71,45 @@ from
 where
 	weight >= 100
 order by weight desc;
+
+
+
+/*
+4. Você foi alocado para criar um relatório das lojas registradas atualmente na Contoso.
+
+a) Descubra quantas lojas a empresa tem no total. Na consulta que você deverá fazer à tabela
+DimStore, retorne as seguintes informações: StoreName, OpenDate, EmployeeCount
+
+b) Renomeeie as colunas anteriores para deixar a sua consulta mais intuitiva.
+
+c) Dessas lojas, descubra quantas (e quais) lojas ainda estão ativas.
+*/
+
+-- a)
+select StoreName,OpenDate,EmployeeCount from DimStore;
+select count(*) as 'Número de Lojas' from DimStore;
+
+-- b)
+select
+	StoreName as 'Nome da Loja',
+	OpenDate as 'Data de Abertura',
+	EmployeeCount as 'Número de Funcionários'
+from
+	DimStore;
+
+-- c)
+select
+	count(*) as 'Número de Lojas Ativas'
+from
+	DimStore
+where
+	Status='On';
+
+select
+	StoreName as 'Nome da Loja',
+	OpenDate as 'Data de Abertura',
+	EmployeeCount as 'Número de Funcionários'
+from
+	DimStore
+where
+	Status='On';
