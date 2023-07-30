@@ -45,3 +45,38 @@ from
 	DimCustomer
 where
 	Occupation='Professional';
+
+
+
+/*
+3. Você precisará fazer uma análise da quantidade de funcionários das lojas registradas na
+empresa. O seu gerente te pediu os seguintes números e informações:
+
+a) Quantos funcionários tem a loja com mais funcionários?
+b) Qual é o nome dessa loja?
+c) Quantos funcionários tem a loja com menos funcionários?
+d) Qual é o nome dessa loja?
+*/
+
+-- a)
+select max(EmployeeCount) as 'Maior número de funcionários' from DimStore;
+
+-- b)
+select StoreName,EmployeeCount from dimstore where EmployeeCount=(select max(EmployeeCount) from DimStore);
+
+-- ou
+
+select top(1) StoreName,EmployeeCount from DimStore order by EmployeeCount desc;
+
+
+-- c)
+select min(EmployeeCount) as 'Menor número de funcionários' from DimStore;
+
+
+-- d)
+select StoreName,EmployeeCount from dimstore where EmployeeCount=(select min(EmployeeCount) from DimStore); -- menor resultado
+
+-- ou
+
+select top(1) StoreName,EmployeeCount from DimStore order by EmployeeCount; -- resultado NULL
+select top(1) StoreName,EmployeeCount from DimStore where EmployeeCount is not null order by EmployeeCount; -- menor resultado
