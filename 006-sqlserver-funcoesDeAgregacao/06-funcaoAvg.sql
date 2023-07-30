@@ -6,5 +6,7 @@
 SELECT
 	AVG(YearlyIncome) AS 'Média Anual de Salário'
 FROM
-	DimCustomer
+	DimCustomer;
 
+
+select max(YearlyIncome) from DimCustomer;
