@@ -139,3 +139,24 @@ where
 	Gender='F'
 order by
 	HireDate;
+
+
+
+/*
+5. Agora você precisa fazer uma análise dos produtos. Será necessário descobrir as seguintes
+informações:
+
+a) Quantidade distinta de cores de produtos.
+b) Quantidade distinta de marcas
+c) Quantidade distinta de classes de produto
+
+Para simplificar, você pode fazer isso em uma mesma consulta.
+*/
+
+-- a, b e c)
+select
+	count(distinct ColorName) as 'Número de cores dos produtos',
+	count(distinct BrandName) as 'Número de marcas dos produtos',
+	count(distinct ClassName) as 'Número de classes dos produtos'
+from
+	DimProduct;
