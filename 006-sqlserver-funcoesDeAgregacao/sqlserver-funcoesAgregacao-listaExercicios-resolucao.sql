@@ -30,3 +30,18 @@ from
 	FactSales
 where
 	channelKey=1;
+
+
+
+/*
+2. Uma nova ação no setor de Marketing precisará avaliar a média salarial de todos os clientes
+da empresa, mas apenas de ocupação Professional. Utilize um comando SQL para atingir esse
+resultado.
+*/
+
+select
+	avg(YearlyIncome) as 'Média Salarial Anual Profissão Professional'
+from
+	DimCustomer
+where
+	Occupation='Professional';
