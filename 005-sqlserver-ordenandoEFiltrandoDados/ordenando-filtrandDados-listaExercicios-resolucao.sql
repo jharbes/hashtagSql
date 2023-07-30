@@ -133,3 +133,23 @@ from
 	DimProduct
 where
 	BrandName = 'Litware' AND ProductName like '%Home Theater%' and AvailableForSaleDate='20090315';
+
+
+
+/*
+6. Imagine que você precise extrair um relatório da tabela DimStore, com informações de lojas.
+Mas você precisa apenas das lojas que não estão mais funcionando atualmente.
+
+a) Utilize a coluna de Status para filtrar a tabela e trazer apenas as lojas que não estão mais
+funcionando.
+
+b) Agora imagine que essa coluna de Status não existe na sua tabela. Qual seria a outra forma
+que você teria de descobrir quais são as lojas que não estão mais funcionando?*/-- a)select * from DimStore where Status='Off';-- b)select * from DimStore where CloseDate is not null;/*7. De acordo com a quantidade de funcionários, cada loja receberá uma determinada quantidade
+de máquinas de café. As lojas serão divididas em 3 categorias:
+
+CATEGORIA 1: De 1 a 20 funcionários -> 1 máquina de café
+CATEGORIA 2: De 21 a 50 funcionários -> 2 máquinas de café
+CATEGORIA 3: Acima de 51 funcionários -> 3 máquinas de café
+
+Identifique, para cada caso, quais são as lojas de cada uma das 3 categorias acima (basta fazer
+uma verificação).*/select * from DimStore where EmployeeCount<=20;select * from DimStore where EmployeeCount between 1 and 20;select * from DimStore where EmployeeCount>20 and EmployeeCount<=50;select * from DimStore where EmployeeCount between 21 and 50;select * from DimStore where EmployeeCount>50;select * from DimStore order by EmployeeCount;
