@@ -17,3 +17,10 @@ FROM
 
 
 -- Obs: A função COUNT não conta valores nulos da coluna, então tome cuidado com o resultado que você espera.
+--		a alteração da coluna utilizada pode mudar o valor final.
+
+
+SELECT
+	COUNT(*) AS 'Qtd. Produtos'
+FROM
+	DimProduct
