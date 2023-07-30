@@ -80,3 +80,62 @@ select StoreName,EmployeeCount from dimstore where EmployeeCount=(select min(Emp
 
 select top(1) StoreName,EmployeeCount from DimStore order by EmployeeCount; -- resultado NULL
 select top(1) StoreName,EmployeeCount from DimStore where EmployeeCount is not null order by EmployeeCount; -- menor resultado
+
+
+
+/*
+4. A área de RH está com uma nova ação para a empresa, e para isso precisa saber a quantidade
+total de funcionários do sexo Masculino e do sexo Feminino.
+
+a) Descubra essas duas informações utilizando o SQL.
+b) O funcionário e a funcionária mais antigos receberão uma homenagem. Descubra as
+seguintes informações de cada um deles: Nome, E-mail, Data de Contratação.
+*/
+
+-- a)
+select top(1)
+	(select
+		count(Gender)
+	from
+		DimEmployee
+	where Gender='M') as 'Número de Funcionários Homens',
+	(select
+		count(Gender)
+	from
+		DimEmployee
+	where Gender='F') as 'Número de Funcionários Homens'
+from
+	DimEmployee;
+
+-- ou
+
+SELECT 
+    SUM(CASE WHEN Gender = 'M' THEN 1 ELSE 0 END) as 'Número de Funcionários Homens',
+    SUM(CASE WHEN Gender = 'F' THEN 1 ELSE 0 END) as 'Número de Funcionários Homens'
+FROM 
+    DimEmployee;
+
+
+-- b)
+select top(1)
+	FirstName,
+	EmailAddress,
+	HireDate
+from
+	DimEmployee
+where
+	Gender='M'
+order by
+	HireDate;
+
+
+select top(1)
+	FirstName,
+	EmailAddress,
+	HireDate
+from
+	DimEmployee
+where
+	Gender='F'
+order by
+	HireDate;
