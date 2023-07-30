@@ -6,5 +6,16 @@
 SELECT
 	COUNT(DISTINCT BrandName)
 FROM
-	DimProduct
+	DimProduct;
 
+
+SELECT
+	COUNT(BrandName)
+FROM
+	DimProduct;
+
+
+SELECT
+	DISTINCT BrandName
+FROM
+	DimProduct;
