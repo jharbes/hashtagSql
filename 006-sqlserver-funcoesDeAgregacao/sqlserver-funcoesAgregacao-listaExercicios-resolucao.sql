@@ -10,3 +10,23 @@ Utilize uma função SQL para fazer essas consultas no seu banco de dados. Obs: Fa
 análise considerando a tabela FactSales.
 */
 
+select 
+	sum(FactSales.SalesQuantity) as 'Quantidade Vendida Canal Loja',
+	sum(FactSales.ReturnQuantity) as 'Quantidade Devolvida Canal Loja'
+from
+	FactSales
+left join DimStore
+on
+	FactSales.StoreKey=DimStore.StoreKey
+where
+	DimStore.StoreType='Store';
+
+-- ou
+
+select 
+	sum(FactSales.SalesQuantity) as 'Quantidade Vendida Canal Loja',
+	sum(FactSales.ReturnQuantity) as 'Quantidade Devolvida Canal Loja'
+from
+	FactSales
+where
+	channelKey=1;
