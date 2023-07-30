@@ -152,4 +152,16 @@ CATEGORIA 2: De 21 a 50 funcionários -> 2 máquinas de café
 CATEGORIA 3: Acima de 51 funcionários -> 3 máquinas de café
 
 Identifique, para cada caso, quais são as lojas de cada uma das 3 categorias acima (basta fazer
-uma verificação).*/select * from DimStore where EmployeeCount<=20;select * from DimStore where EmployeeCount between 1 and 20;select * from DimStore where EmployeeCount>20 and EmployeeCount<=50;select * from DimStore where EmployeeCount between 21 and 50;select * from DimStore where EmployeeCount>50;select * from DimStore order by EmployeeCount;
+uma verificação).*/select * from DimStore where EmployeeCount<=20;select * from DimStore where EmployeeCount between 1 and 20;select * from DimStore where EmployeeCount>20 and EmployeeCount<=50;select * from DimStore where EmployeeCount between 21 and 50;select * from DimStore where EmployeeCount>50;select * from DimStore order by EmployeeCount;/*8. A empresa decidiu que todas as televisões de LCD receberão um super desconto no próximo
+mês. O seu trabalho é fazer uma consulta à tabela DimProduct e retornar os ID’s, Nomes e
+Preços de todos os produtos LCD existentes
+*/
+
+select
+	ProductKey as ID,
+	ProductName as Nome,
+	UnitPrice as 'Preço'
+from
+	DimProduct
+where
+	ProductDescription like '%LCD%';
