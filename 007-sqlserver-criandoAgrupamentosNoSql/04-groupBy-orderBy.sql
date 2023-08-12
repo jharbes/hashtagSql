@@ -11,3 +11,13 @@ FROM
 	DimStore
 GROUP BY StoreType
 ORDER BY SUM(EmployeeCount) DESC
+
+-- ou, com mesmo resultado:
+
+SELECT
+	StoreType,
+	SUM(EmployeeCount) AS 'Qtd. Total Funcionários'
+FROM
+	DimStore
+GROUP BY StoreType
+ORDER BY 'Qtd. Total Funcionários' DESC
