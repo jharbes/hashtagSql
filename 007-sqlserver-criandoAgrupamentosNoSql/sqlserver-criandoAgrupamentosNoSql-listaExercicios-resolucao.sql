@@ -203,3 +203,13 @@ acordo com o seu nível escolar. Utilize a coluna Education da tabela DimCustomer
 esse agrupamento.
 */
 
+select
+	Education as 'Nível Escolar',
+	count(Education) as 'Quantidade por Nível Escolar',
+	avg(YearlyIncome) as 'Média Salarial'
+from
+	DimCustomer
+where
+	Education is not null
+group by
+	Education;
