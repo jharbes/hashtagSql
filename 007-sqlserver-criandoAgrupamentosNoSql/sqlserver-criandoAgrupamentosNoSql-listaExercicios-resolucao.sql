@@ -175,4 +175,5 @@ group by
 5. Você deverá descobrir o peso total para cada tipo de produto (StockTypeName).
 
 A tabela final deve considerar apenas a marca ‘Contoso’ e ter os seus valores classificados em
-ordem decrescente.*/select	StockTypeName as 'Tipo de Produto',	sum(Weight) as 'Peso Total'from	DimProductwhere	BrandName='Contoso'group by	StockTypeNameorder by	sum(Weight) desc;
+ordem decrescente.*/select	StockTypeName as 'Tipo de Produto',	sum(Weight) as 'Peso Total'from	DimProductwhere	BrandName='Contoso'group by	StockTypeNameorder by	sum(Weight) desc;/*6. Você seria capaz de confirmar se todas as marcas dos produtos possuem à disposição todas as
+16 opções de cores?*/select	BrandName as 'Marca do Produto',	count(distinct ColorName) as 'Número de Cores da Marca'from	DimProductgroup by	BrandName;
