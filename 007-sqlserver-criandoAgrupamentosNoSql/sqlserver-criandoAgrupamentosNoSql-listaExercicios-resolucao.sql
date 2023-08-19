@@ -227,3 +227,25 @@ Departamento (DepartmentName). Importante: Você deverá considerar apenas os
 funcionários ativos
 
 */
+
+select
+	DepartmentName as 'Nome do Departamento',
+	count(DepartmentName) as 'Número de Funcionários'
+from
+	DimEmployee
+where
+	EndDate is null
+	--Status is not null
+group by
+	DepartmentName;
+
+
+
+
+/*
+10. Faça uma tabela resumo mostrando o total de VacationHours para cada cargo (Title). Você
+deve considerar apenas as mulheres, dos departamentos de Production, Marketing,
+Engineering e Finance, para os funcionários contratados entre os anos de 1999 e 2000.
+
+*/
+
