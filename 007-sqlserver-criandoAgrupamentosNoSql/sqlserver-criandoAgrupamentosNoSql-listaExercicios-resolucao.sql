@@ -94,8 +94,8 @@ e descubra quais foram os top 3 produtos mais comprados pelo cliente da letra a)
 */
 
 -- a)
-select
-	top(1) CustomerKey,
+select top(1)
+	CustomerKey,
 	sum(SalesQuantity) as 'Quantidade de Vendas'
 from
 	FactOnlineSales
@@ -105,22 +105,40 @@ order by
 	sum(SalesQuantity) desc;
 
 -- b)
-select
-	top (3) ProductKey,
+select top (3)
+	ProductKey,
 	sum(SalesQuantity) as 'Quantidade de Vendas'
 from
 	FactOnlineSales
 where
 	--CustomerKey=19037
 	CustomerKey=(select
-	top(1) CustomerKey
-from
-	FactOnlineSales
-group by
-	CustomerKey
-order by
-	sum(SalesQuantity) desc)
+		top(1) CustomerKey
+	from
+		FactOnlineSales
+	group by
+		CustomerKey
+	order by
+		sum(SalesQuantity) desc)
 group by
 	ProductKey
 order by
 	'Quantidade de Vendas' desc;
+
+
+
+
+/*
+DIMPRODUCT
+
+4.
+
+a) Faça um agrupamento e descubra a quantidade total de produtos por marca.
+
+b) Determine a média do preço unitário (UnitPrice) para cada ClassName.
+
+c) Faça um agrupamento de cores e descubra o peso total que cada cor de produto possui.
+
+*/
+
+-- a)
