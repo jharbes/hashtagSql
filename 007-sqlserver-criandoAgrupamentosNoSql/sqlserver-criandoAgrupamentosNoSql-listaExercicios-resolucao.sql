@@ -185,10 +185,21 @@ conhecimentos em SQL.
 
 select
 	Gender as 'Sexo',
-	count(Gender) 'Número de Clientes'
+	count(Gender) as 'Número de Clientes',
+	avg(YearlyIncome) as 'Média Salarial' 
 from
 	DimCustomer
 where
 	Gender is not null
 group by
 	Gender;
+
+
+
+
+/*
+8. Faça um agrupamento para descobrir a quantidade total de clientes e a média salarial de
+acordo com o seu nível escolar. Utilize a coluna Education da tabela DimCustomer para fazer
+esse agrupamento.
+*/
+
