@@ -249,3 +249,13 @@ Engineering e Finance, para os funcionários contratados entre os anos de 1999 e 
 
 */
 
+select
+	Title as 'Cargo',
+	sum(VacationHours) as 'Horas de Férias'
+from
+	DimEmployee
+where
+	Gender='F' and DepartmentName in ('Production','Marketing','Engineering','Finance')
+	and year(HireDate) in (1999,2000)
+group by
+	Title;
