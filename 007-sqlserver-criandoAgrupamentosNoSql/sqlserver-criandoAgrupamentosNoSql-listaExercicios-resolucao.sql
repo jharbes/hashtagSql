@@ -53,3 +53,25 @@ Desconsidere o filtro de $5.000.000 aplicado.
 */
 
 -- a)
+select
+	ProductKey,
+	sum(SalesAmount) as 'Total de Valor Vendido'
+from
+	FactSales
+group by
+	ProductKey
+having
+	sum(SalesAmount)>=5000000
+order by
+	'Total de Valor Vendido' desc;
+
+-- b)
+select
+	top(10) ProductKey,
+	sum(SalesAmount) as 'Total de Valor Vendido'
+from
+	FactSales
+group by
+	ProductKey
+order by
+	'Total de Valor Vendido' desc;
