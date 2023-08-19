@@ -142,3 +142,28 @@ c) Faça um agrupamento de cores e descubra o peso total que cada cor de produto 
 */
 
 -- a)
+select
+	BrandName as 'Marca do Produto',
+	count(BrandName) 'Número de Produtos por Marca'
+from
+	DimProduct
+group by
+	BrandName;
+
+-- b)
+select
+	ClassName,
+	avg(UnitPrice) as 'Média do Preço Unitário'
+from
+	DimProduct
+group by
+	ClassName;
+
+-- c)
+select
+	ColorName as 'Nome da Cor',
+	sum(Weight) as 'Peso Total'
+from
+	DimProduct
+group by
+	ColorName;
