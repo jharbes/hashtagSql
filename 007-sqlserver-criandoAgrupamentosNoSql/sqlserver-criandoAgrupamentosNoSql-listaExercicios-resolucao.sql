@@ -183,3 +183,12 @@ salarial de acordo com o Sexo. Corrija qualquer resultado “inesperado” com os se
 conhecimentos em SQL.
 */
 
+select
+	Gender as 'Sexo',
+	count(Gender) 'Número de Clientes'
+from
+	DimCustomer
+where
+	Gender is not null
+group by
+	Gender;
