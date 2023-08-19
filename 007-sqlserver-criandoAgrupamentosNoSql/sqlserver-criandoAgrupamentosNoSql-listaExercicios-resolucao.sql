@@ -176,4 +176,10 @@ group by
 
 A tabela final deve considerar apenas a marca ‘Contoso’ e ter os seus valores classificados em
 ordem decrescente.*/select	StockTypeName as 'Tipo de Produto',	sum(Weight) as 'Peso Total'from	DimProductwhere	BrandName='Contoso'group by	StockTypeNameorder by	sum(Weight) desc;/*6. Você seria capaz de confirmar se todas as marcas dos produtos possuem à disposição todas as
-16 opções de cores?*/select	BrandName as 'Marca do Produto',	count(distinct ColorName) as 'Número de Cores da Marca'from	DimProductgroup by	BrandName;
+16 opções de cores?*/select	BrandName as 'Marca do Produto',	count(distinct ColorName) as 'Número de Cores da Marca'from	DimProductgroup by	BrandName;-- mostrando as cores existentes para cada uma das marcasselect	distinct BrandName as 'Marca do Produto',	ColorName as 'Cores da Marca'from	DimProductorder by	BrandName;/*DIMCUSTOMER
+
+7. Faça um agrupamento para saber o total de clientes de acordo com o Sexo e também a média
+salarial de acordo com o Sexo. Corrija qualquer resultado “inesperado” com os seus
+conhecimentos em SQL.
+*/
+
