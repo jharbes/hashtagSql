@@ -175,12 +175,13 @@ group by
 5. Você deverá descobrir o peso total para cada tipo de produto (StockTypeName).
 
 A tabela final deve considerar apenas a marca ‘Contoso’ e ter os seus valores classificados em
-ordem decrescente.*/select	StockTypeName as 'Tipo de Produto',	sum(Weight) as 'Peso Total'from	DimProductwhere	BrandName='Contoso'group by	StockTypeNameorder by	sum(Weight) desc;/*6. Você seria capaz de confirmar se todas as marcas dos produtos possuem à disposição todas as
-16 opções de cores?*/select	BrandName as 'Marca do Produto',	count(distinct ColorName) as 'Número de Cores da Marca'from	DimProductgroup by	BrandName;-- mostrando as cores existentes para cada uma das marcasselect	distinct BrandName as 'Marca do Produto',	ColorName as 'Cores da Marca'from	DimProductorder by	BrandName;/*DIMCUSTOMER
+ordem decrescente.*/select	StockTypeName as 'Tipo de Produto',	sum(Weight) as 'Peso Total'from	DimProductwhere	BrandName='Contoso'group by	StockTypeNameorder by	sum(Weight) desc;/*6. Você seria capaz de confirmar se todas as marcas dos produtos possuem à disposição todas as
+16 opções de cores?*/select	BrandName as 'Marca do Produto',	count(distinct ColorName) as 'Número de Cores da Marca'from	DimProductgroup by	BrandName;-- mostrando as cores existentes para cada uma das marcasselect	distinct BrandName as 'Marca do Produto',	ColorName as 'Cores da Marca'from	DimProductorder by	BrandName;/*DIMCUSTOMER
 
 7. Faça um agrupamento para saber o total de clientes de acordo com o Sexo e também a média
 salarial de acordo com o Sexo. Corrija qualquer resultado “inesperado” com os seus
 conhecimentos em SQL.
+
 */
 
 select
@@ -201,6 +202,7 @@ group by
 8. Faça um agrupamento para descobrir a quantidade total de clientes e a média salarial de
 acordo com o seu nível escolar. Utilize a coluna Education da tabela DimCustomer para fazer
 esse agrupamento.
+
 */
 
 select
@@ -213,3 +215,15 @@ where
 	Education is not null
 group by
 	Education;
+
+
+
+
+/*
+DIMEMPLOYEE
+
+9. Faça uma tabela resumo mostrando a quantidade total de funcionários de acordo com o
+Departamento (DepartmentName). Importante: Você deverá considerar apenas os
+funcionários ativos
+
+*/
