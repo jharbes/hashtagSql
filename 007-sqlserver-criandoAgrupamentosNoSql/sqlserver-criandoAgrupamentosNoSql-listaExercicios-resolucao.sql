@@ -60,7 +60,7 @@ from
 	FactSales
 group by
 	ProductKey
-having
+having -- o filtro eh feito no agrupamento, logo sera usado HAVING
 	sum(SalesAmount)>=5000000
 order by
 	'Total de Valor Vendido' desc;
@@ -75,3 +75,52 @@ group by
 	ProductKey
 order by
 	'Total de Valor Vendido' desc;
+
+
+
+
+/*
+FACTONLINESALES
+
+3. 
+
+a) Você deve fazer uma consulta à tabela FactOnlineSales e descobrir qual é o ID
+(CustomerKey) do cliente que mais realizou compras online (de acordo com a coluna
+SalesQuantity).
+
+b) Feito isso, faça um agrupamento de total vendido (SalesQuantity) por ID do produto
+e descubra quais foram os top 3 produtos mais comprados pelo cliente da letra a).
+
+*/
+
+-- a)
+select
+	top(1) CustomerKey,
+	sum(SalesQuantity) as 'Quantidade de Vendas'
+from
+	FactOnlineSales
+group by
+	CustomerKey
+order by
+	sum(SalesQuantity) desc;
+
+-- b)
+select
+	top (3) ProductKey,
+	sum(SalesQuantity) as 'Quantidade de Vendas'
+from
+	FactOnlineSales
+where
+	--CustomerKey=19037
+	CustomerKey=(select
+	top(1) CustomerKey
+from
+	FactOnlineSales
+group by
+	CustomerKey
+order by
+	sum(SalesQuantity) desc)
+group by
+	ProductKey
+order by
+	'Quantidade de Vendas' desc;
