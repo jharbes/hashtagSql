@@ -34,3 +34,37 @@ VALUES
 	(3, 'Câmera Digital'),
 	(4, 'Televisão'),
 	(5, 'Fone de Ouvido')
+
+
+-- retorna TODOS os itens da tabela à esquerda, e da tabela à direita
+-- apenas os itens EM COMUM com a tabela da esquerda 
+select * from produtos left join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+select * from produtos left outer join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna TODOS os itens da tabela à direita, e da tabela à esquerda
+-- apenas os itens EM COMUM com a tabela da esquerda 
+select * from produtos right join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+select * from produtos right outer join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna APENAS os itens que tenham relação em comum com algum outro item
+-- da outra tabela
+select * from produtos inner join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna TODOS os itens de TODAS as tabelas
+select * from produtos full join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+select * from produtos full outer join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna APENAS os itens que não tem nada em comum com a tabela da direita (nao valido para o SSGBD)
+select * from produtos left anti join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna APENAS os itens que não tem nada em comum com a tabela da esquerda (nao valido para o SSGBD)
+select * from produtos right anti join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
+
+
+-- retorna TODOS os itens que não tem nada em comum com a outra tabela (nao valido para o SSGBD)
+select * from produtos full anti join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
