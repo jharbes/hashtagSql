@@ -36,6 +36,12 @@ VALUES
 	(5, 'Fone de Ouvido')
 
 
+
+
+select * from produtos;
+select * from subcategoria;
+
+
 -- retorna TODOS os itens da tabela à esquerda, e da tabela à direita
 -- apenas os itens EM COMUM com a tabela da esquerda 
 select * from produtos left join subcategoria on produtos.id_subcategoria=subcategoria.id_subcategoria;
