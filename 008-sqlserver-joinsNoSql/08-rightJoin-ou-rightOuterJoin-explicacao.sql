@@ -1,5 +1,8 @@
 -- 08-rightJoin-ou-rightOuterJoin-explicacao
 
+-- serao retornadas todas as linhas da tabela a direita (B, RIGHT) e as linhas da tabela
+-- a esquerda (A, LEFT) que TIVEREM REFERENCIA na tabela a direita (B, RIGHT)
+
 use ContosoRetailDW;
 
 select * from produtos;

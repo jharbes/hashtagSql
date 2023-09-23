@@ -1,6 +1,8 @@
 -- 10-fullJoin-ou-fullOuterJoin-explicacao
 
--- na pratica em conjuntos teremos uma UNIAO (A U B)
+-- na pratica em conjuntos teremos uma UNIAO (A U B), ou seja, serao retornados
+-- todas as linhas da tabela A e B, mesmo que elas não tenham referencia uma na
+-- outra tabela
 
 use ContosoRetailDW;
 
