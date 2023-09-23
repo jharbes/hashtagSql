@@ -1,5 +1,6 @@
 -- 10-fullJoin-ou-fullOuterJoin-explicacao
 
+-- na pratica em conjuntos teremos uma UNIAO (A U B)
 
 use ContosoRetailDW;
 
