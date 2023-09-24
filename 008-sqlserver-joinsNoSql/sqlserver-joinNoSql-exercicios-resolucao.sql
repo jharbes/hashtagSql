@@ -42,11 +42,11 @@ select * from DimProductCategory;
 select * from DimProductSubcategory;
 
 select
-	ProductSubcategoryKey,
-	ProductSubcategoryName,
-	ProductSubcategoryDescription,
-	DimProductSubcategory.ProductCategoryKey,
-	ProductCategoryName
+	ProductSubcategoryKey as 'ID da Subcategoria',
+	ProductSubcategoryName as 'Nome da Subcategoria',
+	ProductSubcategoryDescription as 'Descrição da Subcategoria',
+	DimProductSubcategory.ProductCategoryKey 'ID da Categoria',
+	ProductCategoryName as 'Nome da Categoria'
 from
 	DimProductSubcategory
 left join DimProductCategory
