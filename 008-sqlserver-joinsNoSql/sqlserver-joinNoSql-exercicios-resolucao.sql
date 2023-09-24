@@ -15,6 +15,9 @@ DimProductSubcategory para a tabela DimProduct.
 
 */
 
+select * from DimProduct;
+select * from DimProductSubcategory;
+
 select
 	ProductKey,
 	ProductName,
@@ -23,4 +26,15 @@ select
 from
 	DimProduct
 inner join DimProductSubcategory
-	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductCategoryKey;
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey;
+
+
+
+
+/*
+2. Identifique uma coluna em comum entre as tabelas DimProductSubcategory e
+DimProductCategory. Utilize essa coluna para complementar informações na tabela
+DimProductSubcategory a partir da DimProductCategory. Utilize o LEFT JOIN.
+
+*/
+
