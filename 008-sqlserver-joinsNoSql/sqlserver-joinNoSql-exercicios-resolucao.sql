@@ -204,8 +204,8 @@ select * from DimChannel;
 select top(10) * from FactSales;
 select * from DimProduct;
 
-select distinct
-	BrandName,
+select
+	distinct BrandName,
 	ChannelName
 from
 	DimProduct
@@ -213,5 +213,15 @@ inner join FactSales
 	on DimProduct.ProductKey=FactSales.ProductKey
 inner join DimChannel
 	on FactSales.channelKey=DimChannel.ChannelKey
-where BrandName in ('Contoso','Fabrikam','Litware')
-order by BrandName;
+where BrandName in ('Contoso','Fabrikam','Litware');
+
+-- ou
+
+select
+	distinct BrandName,
+	ChannelName
+from
+	DimProduct
+cross join DimChannel
+where
+	BrandName in ('Contoso','Fabrikam','Litware');
