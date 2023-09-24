@@ -15,3 +15,12 @@ DimProductSubcategory para a tabela DimProduct.
 
 */
 
+select
+	ProductKey,
+	ProductName,
+	DimProduct.ProductSubcategoryKey,
+	DimProductSubcategory.ProductSubcategoryName
+from
+	DimProduct
+inner join DimProductSubcategory
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductCategoryKey;
