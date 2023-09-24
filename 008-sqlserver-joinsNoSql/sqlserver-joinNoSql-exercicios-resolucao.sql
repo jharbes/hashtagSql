@@ -167,3 +167,26 @@ from
 	FactStrategyPlan
 inner join DimScenario
 	on FactStrategyPlan.ScenarioKey=DimScenario.ScenarioKey;
+
+
+
+
+/*
+7. Algumas subcategorias não possuem nenhum exemplar de produto. Identifique que
+subcategorias são essas.
+
+*/
+
+select * from DimProduct;
+select * from DimProductSubcategory;
+
+select
+	DimProductSubcategory.ProductSubCategoryKey,
+	ProductSubcategoryName,
+	ProductKey
+from
+	DimProductSubcategory
+left join DimProduct
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+where
+	ProductKey is null;
