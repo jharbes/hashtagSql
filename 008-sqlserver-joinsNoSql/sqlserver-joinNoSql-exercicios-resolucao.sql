@@ -190,3 +190,28 @@ left join DimProduct
 	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
 where
 	ProductKey is null;
+
+
+
+
+/*
+8. A tabela abaixo mostra a combinação entre Marca e Canal de Venda, para as marcas Contoso,
+Fabrikam e Litware. Crie um código SQL para chegar no mesmo resultado
+
+*/
+
+select * from DimChannel;
+select top(10) * from FactSales;
+select * from DimProduct;
+
+select distinct
+	BrandName,
+	ChannelName
+from
+	DimProduct
+inner join FactSales
+	on DimProduct.ProductKey=FactSales.ProductKey
+inner join DimChannel
+	on FactSales.channelKey=DimChannel.ChannelKey
+where BrandName in ('Contoso','Fabrikam','Litware')
+order by BrandName;
