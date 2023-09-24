@@ -51,3 +51,28 @@ from
 	DimProductSubcategory
 left join DimProductCategory
 	on DimProductSubcategory.ProductCategoryKey=DimProductCategory.ProductCategoryKey;
+
+
+
+
+/*
+3. Para cada loja da tabela DimStore, descubra qual o Continente e o Nome do País associados
+(de acordo com DimGeography). Seu SELECT final deve conter apenas as seguintes colunas:
+StoreKey, StoreName, EmployeeCount, ContinentName e RegionCountryName. Utilize o LEFT
+JOIN neste exercício
+
+*/
+
+select * from DimStore;
+select * from DimGeography;
+
+select
+	StoreKey as 'ID da Loja',
+	StoreName as 'Nome da Loja',
+	EmployeeCount as 'Número de Funcionários',
+	ContinentName as 'Nome do Continente',
+	RegionCountryName as 'Nome do País'
+from
+	DimStore
+left join DimGeography
+	on DimStore.GeographyKey=DimGeography.GeographyKey;
