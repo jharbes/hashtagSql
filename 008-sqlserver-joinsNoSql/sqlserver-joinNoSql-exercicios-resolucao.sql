@@ -246,3 +246,18 @@ acordo com a coluna DateKey, em ordem crescente.
 
 */
 
+select top(10) * from FactOnlineSales;
+select top(10) * from DimPromotion;
+
+select
+	OnlineSalesKey,
+	DateKey,
+	PromotionName,
+	SalesAmount
+from
+	FactOnlineSales
+inner join DimPromotion
+	on FactOnlineSales.PromotionKey=DimPromotion.PromotionKey
+where
+	PromotionName!='No Discount'
+order by DateKey;
