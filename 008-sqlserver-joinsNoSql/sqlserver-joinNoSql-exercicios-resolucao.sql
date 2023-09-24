@@ -247,7 +247,7 @@ acordo com a coluna DateKey, em ordem crescente.
 */
 
 select top(10) * from FactOnlineSales;
-select top(10) * from DimPromotion;
+select * from DimPromotion;
 
 select
 	OnlineSalesKey,
@@ -261,3 +261,14 @@ inner join DimPromotion
 where
 	PromotionName!='No Discount'
 order by DateKey;
+
+
+
+
+/*
+10. A tabela abaixo é resultado de um Join entre a tabela FactSales e as tabelas: DimChannel,
+DimStore e DimProduct.
+Recrie esta consulta e classifique em ordem crescente de acordo com SalesAmount.
+
+*/
+
