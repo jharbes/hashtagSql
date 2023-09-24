@@ -102,3 +102,37 @@ left join DimProductSubcategory
 	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
 left join DimProductCategory
 	on DimProductSubcategory.ProductCategoryKey=DimProductCategory.ProductCategoryKey;
+
+
+
+
+/*
+5. A tabela FactStrategyPlan resume o planejamento estratégico da empresa. Cada linha
+representa um montante destinado a uma determinada AccountKey.
+
+a) Faça um SELECT das 100 primeiras linhas de FactStrategyPlan para reconhecer a tabela.
+
+b) Faça um INNER JOIN para criar uma tabela contendo o AccountName para cada
+AccountKey da tabela FactStrategyPlan. O seu SELECT final deve conter as colunas:
+• StrategyPlanKey
+• DateKey
+• AccountName
+• Amount
+
+*/
+
+-- a)
+select top(100) * from FactStrategyPlan;
+
+-- b)
+select * from DimAccount;
+
+select
+	StrategyPlanKey,
+	Datekey,
+	AccountName,
+	Amount
+from
+	FactStrategyPlan
+inner join DimAccount
+	on FactStrategyPlan.AccountKey=DimAccount.AccountKey;
