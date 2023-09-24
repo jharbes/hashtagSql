@@ -272,3 +272,23 @@ Recrie esta consulta e classifique em ordem crescente de acordo com SalesAmount.
 
 */
 
+select top(100) * from FactSales;
+select * from DimChannel;
+select * from DimStore;
+select * from DimProduct;
+
+select top(1000)
+	SalesKey,
+	ChannelName,
+	StoreName,
+	ProductName,
+	SalesAmount
+from
+	FactSales
+inner join DimChannel
+	on FactSales.channelKey=DimChannel.ChannelKey
+inner join DimStore
+	on FactSales.StoreKey=DimStore.StoreKey
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+order by SalesAmount;
