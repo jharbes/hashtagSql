@@ -38,3 +38,16 @@ DimProductSubcategory a partir da DimProductCategory. Utilize o LEFT JOIN.
 
 */
 
+select * from DimProductCategory;
+select * from DimProductSubcategory;
+
+select
+	ProductSubcategoryKey,
+	ProductSubcategoryName,
+	ProductSubcategoryDescription,
+	DimProductSubcategory.ProductCategoryKey,
+	ProductCategoryName
+from
+	DimProductSubcategory
+left join DimProductCategory
+	on DimProductSubcategory.ProductCategoryKey=DimProductCategory.ProductCategoryKey;
