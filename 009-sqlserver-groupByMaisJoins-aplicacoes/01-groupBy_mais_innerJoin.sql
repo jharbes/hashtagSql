@@ -41,7 +41,7 @@ group by
 -- c)
 select
 	CalendarYear as 'Janeiro do Ano',
-	sum(SalesQuantity) as 'Total Vendido'
+	sum(SalesQuantity) as 'Total Vendido acima de 1.200.000'
 from
 	FactSales
 inner join DimDate
