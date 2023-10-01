@@ -56,8 +56,8 @@ group by
 
 -- c)
 select
-	CalendarMonthLabel as 'Mês',
 	CalendarYear as 'Ano',
+	CalendarMonthLabel as 'Mês',
 	sum(SalesAmount) as 'Valor Total Vendido'
 from
 	FactSales
@@ -67,3 +67,54 @@ group by
 	CalendarYear, FiscalMonth, CalendarMonthLabel
 order by
 	CalendarYear, FiscalMonth;
+
+
+
+/*
+2. Você precisa fazer uma análise de vendas por produtos. O objetivo final é descobrir o valor
+total vendido (SalesAmount) por produto.
+
+a) Descubra qual é a cor de produto que mais é vendida (de acordo com SalesQuantity).
+
+b) Quantas cores tiveram uma quantidade vendida acima de 3.000.000.
+
+*/
+
+-- a)
+select top(10) * from FactSales;
+select * from DimProduct;
+
+select
+	ProductName,
+	ColorName,
+	sum(SalesAmount) as 'Valor Total Vendido',
+	sum(SalesQuantity) as 'Quantidade Vendida'
+from
+	FactSales
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+group by ProductName, ColorName
+order by sum(SalesAmount) desc, sum(SalesQuantity) desc;
+
+
+select
+	ColorName,
+	sum(SalesQuantity) as 'Quantidade Vendida'
+from
+	FactSales
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+group by ColorName
+order by sum(SalesQuantity) desc;
+
+-- b)
+select
+	ColorName,
+	sum(SalesQuantity) as 'Quantidade Vendida'
+from
+	FactSales
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+group by ColorName
+having sum(SalesQuantity)>3000000
+order by sum(SalesQuantity) desc;
