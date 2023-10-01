@@ -39,6 +39,9 @@ group by
 	CalendarYear;
 
 -- c)
+
+-- para realizar FILTROS DEPOIS que o Group By foi realizado
+-- devemos utilizar o comando HAVING
 select
 	CalendarYear as 'Janeiro do Ano',
 	sum(SalesQuantity) as 'Total Vendido acima de 1.200.000'
