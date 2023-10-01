@@ -37,3 +37,18 @@ where
 	CalendarMonthLabel='January'
 group by
 	CalendarYear;
+
+-- c)
+select
+	CalendarYear as 'Janeiro do Ano',
+	sum(SalesQuantity) as 'Total Vendido'
+from
+	FactSales
+inner join DimDate
+	on FactSales.DateKey=DimDate.Datekey
+where
+	CalendarMonthLabel='January'
+group by
+	CalendarYear
+having
+	sum(SalesQuantity)>=1200000;
