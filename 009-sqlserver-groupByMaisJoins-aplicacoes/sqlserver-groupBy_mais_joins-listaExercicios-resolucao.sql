@@ -72,7 +72,7 @@ order by
 
 /*
 2. Você precisa fazer uma análise de vendas por produtos. O objetivo final é descobrir o valor
-total vendido (SalesAmount) por produto.
+total vendido (SalesQuantity) por produto.
 
 a) Descubra qual é a cor de produto que mais é vendida (de acordo com SalesQuantity).
 
@@ -83,19 +83,6 @@ b) Quantas cores tiveram uma quantidade vendida acima de 3.000.000.
 -- a)
 select top(10) * from FactSales;
 select * from DimProduct;
-
-select
-	ProductName,
-	ColorName,
-	sum(SalesAmount) as 'Valor Total Vendido',
-	sum(SalesQuantity) as 'Quantidade Vendida'
-from
-	FactSales
-inner join DimProduct
-	on FactSales.ProductKey=DimProduct.ProductKey
-group by ProductName, ColorName
-order by sum(SalesAmount) desc, sum(SalesQuantity) desc;
-
 
 select
 	ColorName,
@@ -118,3 +105,41 @@ inner join DimProduct
 group by ColorName
 having sum(SalesQuantity)>3000000
 order by sum(SalesQuantity) desc;
+
+
+select
+	@@ROWCOUNT as 'Cores com Vendas acima de 3.000.000'
+from
+	FactSales
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+--group by ColorName
+having sum(SalesQuantity)>3000000
+order by sum(SalesQuantity) desc;
+
+
+
+/*
+3. Crie um agrupamento de quantidade vendida (SalesQuantity) por categoria do produto
+(ProductCategoryName). Obs: Você precisará fazer mais de 1 INNER JOIN, dado que a relação
+entre FactSales e DimProductCategory não é direta.
+
+*/
+
+select top(10) * from FactSales;
+select * from DimProduct;
+select * from DimProductCategory;
+select * from DimProductSubcategory;
+
+select
+	ProductCategoryName as Categoria,
+	sum(SalesQuantity) as 'Qtd. Vendida'
+from
+	FactSales
+inner join DimProduct
+	on FactSales.ProductKey=DimProduct.ProductKey
+inner join DimProductSubcategory
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+inner join DimProductCategory
+	on DimProductSubcategory.ProductCategoryKey=DimProductCategory.ProductCategoryKey
+group by ProductCategoryName;
