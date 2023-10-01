@@ -143,3 +143,15 @@ inner join DimProductSubcategory
 inner join DimProductCategory
 	on DimProductSubcategory.ProductCategoryKey=DimProductCategory.ProductCategoryKey
 group by ProductCategoryName;
+
+
+
+/*
+FACTONLINESALES
+
+4. 
+a) Você deve fazer uma consulta à tabela FactOnlineSales e descobrir qual é o nome completo
+do cliente que mais realizou compras online (de acordo com a coluna SalesQuantity).
+
+b) Feito isso, faça um agrupamento de produtos e descubra quais foram os top 10 produtos mais
+comprados pelo cliente da letra a, considerando o nome do produto.*/-- a)select top(10) * from FactOnlineSales;select  * from DimCustomer;select	top(1)	CONCAT(firstname, ' ', lastname) as 'Nome Completo',	sum(SalesQuantity) as 'Número de Compras Online'from FactOnlineSalesinner join DimCustomer	on FactOnlineSales.CustomerKey=DimCustomer.CustomerKeywhere CustomerType='Person'group by CONCAT(firstname, ' ', lastname)order by sum(SalesQuantity) desc;-- b)select	top(10)	CONCAT(firstname, ' ', lastname) as 'Nome Completo',	ProductName,	sum(SalesQuantity) as 'Número de Compras Online'from FactOnlineSalesinner join DimCustomer	on FactOnlineSales.CustomerKey=DimCustomer.CustomerKeyinner join DimProduct	on FactOnlineSales.ProductKey=DimProduct.ProductKeywhere CustomerType='Person' and CONCAT(firstname, ' ', lastname)='Lacey Xu'group by CONCAT(firstname, ' ', lastname), ProductNameorder by sum(SalesQuantity) desc, ProductName;------------------------------------------------------------------select	top(10)	CONCAT(firstname, ' ', lastname) as 'Nome Completo',	ProductName,	sum(SalesQuantity) as 'Número de Compras Online'from FactOnlineSalesinner join DimCustomer	on FactOnlineSales.CustomerKey=DimCustomer.CustomerKeyinner join DimProduct	on FactOnlineSales.ProductKey=DimProduct.ProductKeywhere CustomerType='Person' and CONCAT(firstname, ' ', lastname)=(select	top(1)	CONCAT(firstname, ' ', lastname) as 'Nome Completo'from FactOnlineSalesinner join DimCustomer	on FactOnlineSales.CustomerKey=DimCustomer.CustomerKeywhere CustomerType='Person'group by CONCAT(firstname, ' ', lastname)order by sum(SalesQuantity) desc)group by CONCAT(firstname, ' ', lastname), ProductNameorder by sum(SalesQuantity) desc, ProductName;
