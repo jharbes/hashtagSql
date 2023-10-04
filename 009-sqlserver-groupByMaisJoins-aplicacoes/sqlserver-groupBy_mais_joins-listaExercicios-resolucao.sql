@@ -290,3 +290,29 @@ inner join DimScenario
 on FactStrategyPlan.ScenarioKey=DimScenario.ScenarioKey
 where ScenarioDescription in ('Actual', 'Budget')
 group by ScenarioDescription;
+
+
+
+/*
+8. Faça uma tabela resumo mostrando o resultado do planejamento estratégico por ano.
+
+*/
+
+select
+	year(Datekey) as 'Ano',
+	sum(Amount)
+from
+	FactStrategyPlan
+group by year(Datekey);
+
+
+select
+	year(Datekey) as 'Ano',
+	ScenarioDescription as 'Cenário',
+	sum(Amount) as 'Montante Total'
+from
+	FactStrategyPlan
+inner join DimScenario
+on FactStrategyPlan.ScenarioKey=DimScenario.ScenarioKey
+group by year(Datekey), ScenarioDescription
+order by year(Datekey);
