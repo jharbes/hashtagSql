@@ -261,4 +261,20 @@ from
 inner join DimCurrency
 on FactExchangeRate.CurrencyKey=DimCurrency.CurrencyKey
 group by FactExchangeRate.CurrencyKey, CurrencyDescription
+having avg(AverageRate)>=10 and avg(AverageRate)<=100
+-- ou
+-- having avg(AverageRate) between 10 and 100
 order by FactExchangeRate.CurrencyKey;
+
+
+
+/*
+FACTSTRATEGYPLAN
+
+7. Calcule a SOMA TOTAL de AMOUNT referente à tabela FactStrategyPlan destinado aos
+cenários: Actual e Budget.
+
+Dica: A tabela DimScenario será importante para esse exercício.
+
+*/
+
