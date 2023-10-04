@@ -6,6 +6,7 @@ SELECT 49.50 AS 'Decimal'
 SELECT 'Marcus' AS 'Nome'
 SELECT '20/06/2021' AS 'Data'
 SELECT datefromparts(2021,06,20) as 'Data 2'
+select datetimefromparts(2021,06,20,0,0,0,0) + 1
 
 SELECT SQL_VARIANT_PROPERTY(10, 'BaseType') -- int
 SELECT SQL_VARIANT_PROPERTY(49.50, 'BaseType') -- numeric

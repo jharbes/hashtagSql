@@ -22,3 +22,4 @@ SELECT 'O preço do produto é: ' + CAST(30.99 AS VARCHAR(30))
 -- Exemplo 2: Adicione 1 dia à data '20/06/2021'
 
 SELECT CAST('20/06/2021' AS DATETIME) + 1
+select datetimefromparts(2021,06,20,0,0,0,0) + 1
