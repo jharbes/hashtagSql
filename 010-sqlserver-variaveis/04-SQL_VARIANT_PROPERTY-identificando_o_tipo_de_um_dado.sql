@@ -5,6 +5,8 @@ SELECT 10 AS 'Número'
 SELECT 49.50 AS 'Decimal'
 SELECT 'Marcus' AS 'Nome'
 SELECT '20/06/2021' AS 'Data'
+
+-- operador de soma em date funcionará apenas para datetime dessa maneira
 SELECT datefromparts(2021,06,20) as 'Data 2'
 select datetimefromparts(2021,06,20,0,0,0,0) + 1
 
