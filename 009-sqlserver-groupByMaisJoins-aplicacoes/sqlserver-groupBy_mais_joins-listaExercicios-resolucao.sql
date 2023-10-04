@@ -339,3 +339,23 @@ inner join DimProductSubcategory
 on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
 where BrandName='Contoso' and ColorName='Silver'
 group by ProductSubcategoryName;
+
+
+
+/*
+10. Faça um agrupamento duplo de quantidade de produtos por BrandName e
+ProductSubcategoryName. A tabela final deverá ser ordenada de acordo com a coluna
+BrandName.
+
+*/
+
+select
+	BrandName as 'Nome da Marca',
+	ProductSubcategoryName as 'Nome da Subcategoria',
+	count(ProductKey) as 'Quantidade de Produtos'
+from
+	DimProduct
+inner join DimProductSubcategory
+on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+group by BrandName, ProductSubcategoryName
+order by BrandName;
