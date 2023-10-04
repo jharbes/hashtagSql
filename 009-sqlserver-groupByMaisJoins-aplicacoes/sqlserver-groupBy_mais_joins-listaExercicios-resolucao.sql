@@ -226,3 +226,15 @@ sexo dos clientes.
 
 */
 
+select top(10) * from FactOnlineSales;
+select  * from DimCustomer;
+
+select
+	Gender as 'Sexo',
+	sum(SalesQuantity) as 'Total de Produtos Comprados'
+from
+	FactOnlineSales
+inner join DimCustomer
+on FactOnlineSales.CustomerKey=DimCustomer.CustomerKey
+where Gender is not null
+group by Gender;
