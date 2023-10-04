@@ -316,3 +316,26 @@ inner join DimScenario
 on FactStrategyPlan.ScenarioKey=DimScenario.ScenarioKey
 group by year(Datekey), ScenarioDescription
 order by year(Datekey);
+
+
+
+/*
+DIMPRODUCT/DIMPRODUCTSUBCATEGORY
+
+9. Faça um agrupamento de quantidade de produtos por ProductSubcategoryName. Leve em
+consideração em sua análise apenas a marca Contoso e a cor Silver.
+
+*/
+
+select * from DimProduct;
+select * from DimProductSubcategory;
+
+select
+	ProductSubcategoryName as 'Nome da Subcategoria',
+	count(ProductKey) as 'Quantidade de Produtos'
+from
+	DimProduct
+inner join DimProductSubcategory
+on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+where BrandName='Contoso' and ColorName='Silver'
+group by ProductSubcategoryName;
