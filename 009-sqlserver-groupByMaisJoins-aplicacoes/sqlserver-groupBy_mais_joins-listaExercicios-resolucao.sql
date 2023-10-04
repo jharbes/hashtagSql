@@ -278,3 +278,15 @@ Dica: A tabela DimScenario será importante para esse exercício.
 
 */
 
+select top(10) * from FactStrategyPlan;
+select * from DimScenario;
+
+select
+	ScenarioDescription as 'Cenário',
+	sum(Amount) as 'Montante Total'
+from
+	FactStrategyPlan
+inner join DimScenario
+on FactStrategyPlan.ScenarioKey=DimScenario.ScenarioKey
+where ScenarioDescription in ('Actual', 'Budget')
+group by ScenarioDescription;
