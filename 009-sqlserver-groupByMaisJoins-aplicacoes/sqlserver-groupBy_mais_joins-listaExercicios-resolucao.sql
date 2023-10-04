@@ -238,3 +238,27 @@ inner join DimCustomer
 on FactOnlineSales.CustomerKey=DimCustomer.CustomerKey
 where Gender is not null
 group by Gender;
+
+
+
+/*
+FACTEXCHANGERATE
+
+6. Faça uma tabela resumo mostrando a taxa de câmbio média de acordo com cada
+CurrencyDescription. A tabela final deve conter apenas taxas entre 10 e 100.
+
+*/
+
+select top(10) * from FactExchangeRate;
+select * from DimCurrency;
+
+select
+	FactExchangeRate.CurrencyKey 'ID da Moeda',
+	CurrencyDescription as 'Moeda',
+	avg(AverageRate) as 'Taxa de Câmbio Média'
+from
+	FactExchangeRate
+inner join DimCurrency
+on FactExchangeRate.CurrencyKey=DimCurrency.CurrencyKey
+group by FactExchangeRate.CurrencyKey, CurrencyDescription
+order by FactExchangeRate.CurrencyKey;
