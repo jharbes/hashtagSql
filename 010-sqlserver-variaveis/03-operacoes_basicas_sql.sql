@@ -83,7 +83,7 @@ _ (Curinga – Corresponde a um caractere) funciona como o ? no DOS(?)
 
 -- Operações com datas
 
-SELECT ('21/03/2021') + 1
+SELECT datefromparts(2021,06,20)
 
 
 
