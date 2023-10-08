@@ -135,3 +135,14 @@ Obs: utilize o comando PRINT (e não o SELECT!) para mostrar o resultado
 
 */
 
+select * from DimStore where Status='Off' and YEAR(CloseDate)=2008;
+
+declare @lojas_fechadas_2008 as varchar(max)=''
+
+select
+	@lojas_fechadas_2008 = @lojas_fechadas_2008 + StoreName + ', '
+from
+	DimStore
+where Status='Off' and YEAR(CloseDate)=2008
+
+print 'As lojas fechadas no ano de 2008 foram: ' + LEFT(@lojas_fechadas_2008, DATALENGTH(@lojas_fechadas_2008) - 2)
