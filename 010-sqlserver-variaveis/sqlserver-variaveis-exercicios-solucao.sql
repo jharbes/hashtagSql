@@ -113,3 +113,6 @@ Dica: você precisará utilizar as funções CAST e FORMAT para chegar no resultado.
 
 */
 
+declare @nome as varchar(50)='André', @data_nascimento as datetime='10/02/1998', @num_pets as int=2
+
+print 'O usuário é o ' + @nome + ' nascido em ' + format(@data_nascimento,'dd/MM/yyyy') + ' e possui ' + cast(@num_pets as varchar(20)) + ' pets.'
