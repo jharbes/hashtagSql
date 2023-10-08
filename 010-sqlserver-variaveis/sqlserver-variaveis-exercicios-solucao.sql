@@ -29,3 +29,30 @@ e) Arredonde o resultado da letra d) para 2 casas decimais.
 
 */
 
+declare @valor1 int = 10, @valor2 int = 5, @valor3 int = 34, @valor4 int = 7
+
+-- a)
+declare @soma int
+select @soma=@valor1+@valor2
+select @soma
+print @soma
+
+--b)
+declare @subtracao int = @valor3-@valor4
+select @subtracao
+print @subtracao
+
+-- c)
+declare @multiplicacao int=@valor1*@valor4
+select @multiplicacao
+print @multiplicacao
+
+-- d)
+declare @divisao decimal(5,2)
+set @divisao=(cast(@valor3 as decimal(5,2)))/@valor4
+select @divisao
+print @divisao
+
+-- e)
+
+select ROUND(@divisao,2)
