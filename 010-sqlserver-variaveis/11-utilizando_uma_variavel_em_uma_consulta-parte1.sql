@@ -4,8 +4,10 @@
 
 -- Aplique um desconto de 10% em todos os preços dos produtos. Sua consulta final deve conter as colunas ProductKey, ProductName, UnitPrice e Preço com Desconto. 
 
+-- observe no exemplo abaixo por meio do DECLARE e do SET que as variaveis, assim como os comandos
+-- em SQL NÃO SÃO CASE SENSITIVE
 DECLARE @varDesconto FLOAT
-SET @varDesconto = 0.1
+SET @vardesconto = 0.1
 
 SELECT 
 	ProductKey AS 'ID',
