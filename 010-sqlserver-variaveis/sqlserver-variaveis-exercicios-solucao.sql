@@ -137,12 +137,36 @@ Obs: utilize o comando PRINT (e não o SELECT!) para mostrar o resultado
 
 select * from DimStore where Status='Off' and YEAR(CloseDate)=2008;
 
-declare @lojas_fechadas_2008 as varchar(max)=''
+declare @lojas_fechadas_2008 as varchar(max)='';
 
 select
 	@lojas_fechadas_2008 = @lojas_fechadas_2008 + StoreName + ', '
 from
 	DimStore
-where Status='Off' and YEAR(CloseDate)=2008
+where Status='Off' and YEAR(CloseDate)=2008;
 
-print 'As lojas fechadas no ano de 2008 foram: ' + LEFT(@lojas_fechadas_2008, DATALENGTH(@lojas_fechadas_2008) - 2)
+print 'As lojas fechadas no ano de 2008 foram: ' + LEFT(@lojas_fechadas_2008, DATALENGTH(@lojas_fechadas_2008) - 2);
+
+
+
+/*
+5. Você precisa criar uma consulta para mostrar a lista de produtos da tabela DimProduct para
+uma subcategoria específica: ‘Lamps’.
+
+Utilize o conceito de variáveis para chegar neste resultado
+
+*/
+
+select * from DimProductSubcategory;
+
+declare @lista_produtos_lamps as varchar(max)=''
+
+select 
+	@lista_produtos_lamps = @lista_produtos_lamps + ProductName + ', ' + char(10)
+from
+	DimProduct
+inner join DimProductSubcategory
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+where ProductSubcategoryName='Lamps';
+
+print LEFT(@lista_produtos_lamps, DATALENGTH(@lista_produtos_lamps) - 3);
