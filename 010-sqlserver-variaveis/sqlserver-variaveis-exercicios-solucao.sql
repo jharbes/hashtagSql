@@ -161,6 +161,19 @@ select * from DimProductSubcategory;
 
 declare @lista_produtos_lamps as varchar(max)=''
 
+
+
+select 
+	ProductKey as 'ID do Produto Subcategoria Lamps',
+	ProductName as 'Lista de Produtos da Subcategoria Lamps'
+from
+	DimProduct
+inner join DimProductSubcategory
+	on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+where ProductSubcategoryName='Lamps';
+
+
+
 select 
 	@lista_produtos_lamps = @lista_produtos_lamps + ProductName + ', ' + char(10)
 from
