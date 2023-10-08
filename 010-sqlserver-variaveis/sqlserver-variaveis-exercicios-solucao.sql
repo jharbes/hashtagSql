@@ -76,3 +76,20 @@ e) Visualize o resultado dessas 4 variáveis em uma única consulta, por meio do S
 */
 
 -- a)
+declare @produto varchar(20)='Celular'
+select @produto
+
+-- b)
+declare @quantidade int=12
+select @quantidade
+
+-- c)
+declare @preco float=9.99
+select @preco
+
+-- d)
+declare @faturamento float=@quantidade*@preco
+select @faturamento
+
+-- e)
+select @produto as 'Produto', @quantidade as 'Quantidade', @preco as 'Preço', @faturamento as 'Faturamento'
