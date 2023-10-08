@@ -115,4 +115,23 @@ Dica: você precisará utilizar as funções CAST e FORMAT para chegar no resultado.
 
 declare @nome as varchar(50)='André', @data_nascimento as datetime='10/02/1998', @num_pets as int=2
 
-print 'O usuário é o ' + @nome + ' nascido em ' + format(@data_nascimento,'dd/MM/yyyy') + ' e possui ' + cast(@num_pets as varchar(20)) + ' pets.'
+print 'Meu nome é ' + @nome + ', nasci em ' + format(@data_nascimento,'dd/MM/yyyy') + ' e tenho ' + cast(@num_pets as varchar(20)) + ' pets.'
+
+
+
+/*
+4. Você acabou de ser promovido e o seu papel será realizar um controle de qualidade sobre as
+lojas da empresa.
+
+A primeira informação que é passada a você é que o ano de 2008 foi bem complicado para a
+empresa, pois foi quando duas das principais lojas fecharam. O seu primeiro desafio é descobrir
+o nome dessas lojas que fecharam no ano de 2008, para que você possa entender o motivo e
+mapear planos de ação para evitar que outras lojas importantes tomem o mesmo caminho.
+O seu resultado deverá estar estruturado em uma frase, com a seguinte estrutura:
+
+‘As lojas fechadas no ano de 2008 foram: ’ + nome_das_lojas
+
+Obs: utilize o comando PRINT (e não o SELECT!) para mostrar o resultado
+
+*/
+
