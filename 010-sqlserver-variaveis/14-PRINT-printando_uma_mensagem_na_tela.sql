@@ -1,6 +1,10 @@
 -- [SQL Server] Variáveis
 -- Aula 14 de 23: PRINT - Printando uma mensagem na tela
 
+-- a mensagem abaixo faz com que na aba 'mensagens' pare de aparecer o numero de 'contagens' após feita
+-- uma consulta de select 
+SET NOCOUNT ON
+
 -- Exemplo 1: Printe na tela a quantidade de lojas On e a quantidade  de lojas Off da tabela DimStore. Utilize variáveis para isso.
 
 DECLARE @varLojasOn INT, @varLojasOff INT
