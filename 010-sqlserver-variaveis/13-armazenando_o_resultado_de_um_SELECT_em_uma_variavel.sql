@@ -4,6 +4,9 @@
 -- Exemplo 1: Crie uma variável para armazenar a quantidade total de funcionários da tabela DimEmployee.
 
 DECLARE @varTotalFuncionarios INT
+
+-- obrigatoriamente deveremos colocar o select dentro de parenteses (), caso contrario o SGBD nao
+-- entenderá que queremos armazena-lo na variavel
 SET @varTotalFuncionarios = (SELECT COUNT(*) FROM DimEmployee)
 SELECT @varTotalFuncionarios
 
