@@ -6,6 +6,18 @@
 DECLARE @varProdutoMaisVendido INT
 DECLARE @varTotalMaisVendido INT
 
+
+SELECT TOP(1)
+	ProductKey,
+	SalesQuantity
+FROM
+	FactSales
+ORDER BY SalesQuantity DESC
+
+
+
+-- aqui pegaremos o resultado da consulta acima e lancaremos dentro da
+-- variavel que foi declarada anteriormente
 SELECT TOP(1)
 	@varProdutoMaisVendido = ProductKey,
 	@varTotalMaisVendido = SalesQuantity
