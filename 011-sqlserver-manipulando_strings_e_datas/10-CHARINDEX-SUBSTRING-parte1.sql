@@ -22,5 +22,16 @@ SELECT 'Marcus Cavalcanti' AS 'Nome'
 
 SELECT CHARINDEX(' ', 'Marcus Cavalcanti') AS 'Posição' -- 7
 
--- utilizando para extrair o sobrenome (nome que está após o espaço)
+-- utilizando para extrair o sobrenome (nome que está após o espaço), observe que o valor 100 está
+-- apenas indicando que deseja que vá até o fim da string
 SELECT SUBSTRING('Marcus Cavalcanti', CHARINDEX(' ', 'Marcus Cavalcanti') + 1, 100) AS 'Sobrenome' -- Cavalcanti
+
+SELECT SUBSTRING('Raquel Moreno', CHARINDEX(' ', 'Raquel Moreno') + 1, 100) AS 'Sobrenome' -- Moreno
+
+SELECT SUBSTRING('Ralf Schwainszteinger', CHARINDEX(' ', 'Ralf Schwainszteinger') + 1, 100) AS 'Sobrenome' -- Schwainszteinger
+
+
+declare @var_nome varchar(100)
+set @var_nome = 'Bernardo Stumpf'
+
+SELECT SUBSTRING(@var_nome, CHARINDEX(' ', @var_nome) + 1, 100) AS 'Sobrenome' -- Stumpf
