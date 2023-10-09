@@ -8,15 +8,15 @@
 
 -- Utilize as funções acima no código '   ABC123   '
 
-DECLARE @varCodigo VARCHAR(50)
-SET @varCodigo = '   ABC123   '
+DECLARE @varCodigo VARCHAR(50);
+SET @varCodigo = '   ABC123   ';
 
 SELECT
-	TRIM(@varCodigo) AS 'Trim',
-	LTRIM(@varCodigo) AS 'Ltrim',
-	RTRIM(@varCodigo) AS 'Rtrim'
+	TRIM(@varCodigo) AS 'Trim', -- ABC123
+	LTRIM(@varCodigo) AS 'Ltrim', -- ABC123
+	RTRIM(@varCodigo) AS 'Rtrim'; --    ABC123
 
 SELECT
-	DATALENGTH(TRIM(@varCodigo)) AS 'Trim',
-	DATALENGTH(LTRIM(@varCodigo)) AS 'Ltrim',
-	DATALENGTH(RTRIM(@varCodigo)) AS 'Rtrim'
+	DATALENGTH(TRIM(@varCodigo)) AS 'Trim', -- 6
+	DATALENGTH(LTRIM(@varCodigo)) AS 'Ltrim', -- 9
+	DATALENGTH(RTRIM(@varCodigo)) AS 'Rtrim'; -- 9
