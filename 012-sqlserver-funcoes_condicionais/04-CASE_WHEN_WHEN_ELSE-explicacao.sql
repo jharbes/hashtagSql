@@ -12,7 +12,7 @@ Exemplo 1:
 
 Crie um código para verificar a nota do aluno e determinar a situação:
 - Aprovado: nota maior ou igual a 6
-- Prova final: noa entre 4 e 6
+- Prova final: nota entre 4 e 6
 - Reprovado: nota abaixo de 4
 
 DECLARE @varNota FLOAT
@@ -33,12 +33,15 @@ END
 -- Preço < 10000: Básico
 
 
-DECLARE @varPreco FLOAT
-SET @varPreco = 30000
+DECLARE @varPreco FLOAT;
+SET @varPreco = 30000;
 
 SELECT
 	CASE
 		WHEN @varPreco >= 40000 THEN 'Luxo'
 		WHEN @varPreco >= 10000 THEN 'Econômico'
 		ELSE 'Básico'
-	END
+	END;
+
+
+select * from DimProduct;
