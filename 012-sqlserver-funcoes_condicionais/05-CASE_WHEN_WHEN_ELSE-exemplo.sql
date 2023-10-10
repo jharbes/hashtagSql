@@ -4,7 +4,7 @@
 
 -- Exemplo: Crie uma coluna para substituir o 'M' por 'Masculino' e 'F' por 'Feminino'. Verifique se será necessário fazer alguma correção.
 
-SELECT * FROM DimCustomer
+SELECT * FROM DimCustomer;
 
 SELECT
 	CustomerKey,
@@ -16,5 +16,5 @@ SELECT
 		ELSE 'Empresa'
 	END AS 'Sexo'
 FROM
-	DimCustomer
+	DimCustomer;
 
