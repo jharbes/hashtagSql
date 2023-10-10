@@ -28,3 +28,21 @@ d) Qual é a média de caracteres nesse novo cenário?
 */
 
 -- a)
+select * from DimProduct;
+
+select
+	ProductName as 'Nome do Produto',
+	LEN(ProductName) as 'Tamanho do Nome do Produto'
+from
+	DimProduct
+order by LEN(ProductName) desc;
+
+
+-- b)
+select
+	avg(len(ProductName)) as 'Média de Caracteres no Nome dos Produtos'
+from
+	DimProduct;
+
+
+-- c)
