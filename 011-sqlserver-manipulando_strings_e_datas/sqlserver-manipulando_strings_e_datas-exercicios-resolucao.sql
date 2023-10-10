@@ -195,3 +195,21 @@ select
 	YEAR(HireDate) as 'Ano da Contratação'
 from
 	DimEmployee;
+
+
+
+/*
+6. Descubra qual é a loja que possui o maior tempo de atividade (em dias). Você deverá fazer essa
+consulta na tabela DimStore, e considerar a coluna OpenDate como referência para esse cálculo.
+
+*/
+
+select * from DimStore;
+
+select top(1)
+	StoreKey as 'ID da Loja',
+	StoreName as 'Nome da Loja',
+	DATEDIFF(DAY, OpenDate, GETDATE()) as 'Número de Dias de Funcionamento'
+from
+	DimStore
+order by DATEDIFF(DAY, OpenDate, GETDATE()) desc;
