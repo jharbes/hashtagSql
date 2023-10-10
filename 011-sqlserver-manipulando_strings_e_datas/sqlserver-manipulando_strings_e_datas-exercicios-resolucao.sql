@@ -212,4 +212,5 @@ select top(1)
 	DATEDIFF(DAY, OpenDate, GETDATE()) as 'Número de Dias de Funcionamento'
 from
 	DimStore
+where CloseDate is null
 order by DATEDIFF(DAY, OpenDate, GETDATE()) desc;
