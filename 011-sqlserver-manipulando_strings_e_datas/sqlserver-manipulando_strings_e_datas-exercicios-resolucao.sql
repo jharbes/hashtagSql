@@ -103,7 +103,7 @@ from
 empresa Contoso. Cada funcionário receberá um login e senha. O login de cada funcionário será
 o ID do e-mail, como no exemplo abaixo:
 
-Já a senha será o FirtName + o dia do ano em que o funcionário nasceu, em MAIÚSCULA. Por
+Já a senha será o FirstName + o dia do ano em que o funcionário nasceu, em MAIÚSCULA. Por
 exemplo, o funcionário com E-mail: mark0@contoso.com e data de nascimento 15/01/1990
 deverá ter a seguinte senha:
 
@@ -113,7 +113,16 @@ Senha: MARK15
 O responsável pelo TI pediu a sua ajuda para retornar uma tabela contendo as seguintes colunas
 da tabela DimEmployee: Nome completo (FirstName + LastName), E-mail, ID do e-mail e Senha.
 
-Portanto, faça uma consulta à tabela DimProduct e retorne esse resultado
+Portanto, faça uma consulta à tabela DimEmployee e retorne esse resultado
 
 */
 
+select * from DimEmployee;
+
+select
+	CONCAT(FirstName, ' ', LastName) as 'Nome Completo',
+	EmailAddress as 'E-Mail',
+	SUBSTRING(EmailAddress, 1, CHARINDEX('@', EmailAddress) - 1) as 'ID do E-Mail',
+	CONCAT(UPPER(FirstName), DAY(BirthDate)) as 'Senha'
+from
+	DimEmployee;
