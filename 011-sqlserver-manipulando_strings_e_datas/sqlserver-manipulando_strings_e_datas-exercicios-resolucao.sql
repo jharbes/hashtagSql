@@ -46,3 +46,15 @@ from
 
 
 -- c)
+select
+	ProductName as 'Nome do Produto',
+	RTRIM(REPLACE(LTRIM(REPLACE(ProductName, BrandName, '')), ColorName, '')) as 'Nome do Produto Reduzido'
+from
+	DimProduct;
+
+
+-- d)
+select
+	AVG(LEN(RTRIM(REPLACE(LTRIM(REPLACE(ProductName, BrandName, '')), ColorName, '')))) as 'Média de Caracteres Reduzido'
+from
+	DimProduct;
