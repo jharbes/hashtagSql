@@ -2,6 +2,7 @@
 -- Aula 2 de 18: CASE WHEN... ELSE (Explicação)
 
 -- Introdução: A função CASE permite tratar condições no SQL
+-- OPCIONAL***: AS 'Nome da Coluna' APÓS O END para nomear a coluna
 
 /*
 CASE
