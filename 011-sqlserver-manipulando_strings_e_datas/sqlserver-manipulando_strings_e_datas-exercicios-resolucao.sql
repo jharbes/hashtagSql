@@ -126,3 +126,13 @@ select
 	CONCAT(UPPER(FirstName), DAY(BirthDate)) as 'Senha'
 from
 	DimEmployee;
+
+-- ou
+
+select
+	FirstName + ' ' + LastName as 'Nome Completo',
+	EmailAddress as 'E-Mail',
+	LEFT(EmailAddress, CHARINDEX('@', EmailAddress) - 1) as 'ID do E-Mail',
+	UPPER(FirstName) + DATENAME(DAY, BirthDate) as 'Senha'
+from
+	DimEmployee;
