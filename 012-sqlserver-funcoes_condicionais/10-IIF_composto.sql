@@ -6,9 +6,14 @@
 -- Maria é responsável pelos produtos Mid
 -- Luis é responsável pelos produtos Low
 
+-- IIF Composto nada mais é do que um IIF dentro de outro IIF.
+
+select * from DimProduct;
+
 SELECT
 	ProductKey,
 	ProductName,
+	StockTypeName,
 	iif(
 		StockTypeName = 'High',
 		'João',
@@ -19,4 +24,4 @@ SELECT
 			) AS 'Responsável'
 
 FROM
-	DimProduct
+	DimProduct;
