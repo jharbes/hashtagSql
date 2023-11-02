@@ -5,20 +5,24 @@
 -- Risco Alto: Classicacao >= 5
 -- Risco Baixo: Classificacao < 5
 
-DECLARE @varClassificacao int
-set @varClassificacao = 9
+DECLARE @varClassificacao int;
+set @varClassificacao = 9;
+
+
+-- UTILIZAÇÃO:
+-- IIF(<teste_logico>,<resultado_se_true>,<resultado_se_false>)
 
 SELECT
 	IIF(
 		@varClassificacao >= 5,
 		'Risco Alto',
 		'Risco Baixo'
-		)
+		);
 
 
 -- Exemplo 2: Crie uma coluna única de 'Cliente', contendo o nome do cliente, seja ele uma pessoa ou uma empresa. Traga também a coluna de CustomerKey e CustomerType.
 
-SELECT * FROM DimCustomer
+SELECT * FROM DimCustomer;
 
 SELECT
 	CustomerKey,
@@ -28,4 +32,4 @@ SELECT
 		FirstName,
 		CompanyName) AS 'Cliente'
 FROM
-	DimCustomer
+	DimCustomer;
