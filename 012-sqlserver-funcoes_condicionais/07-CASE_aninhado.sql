@@ -3,7 +3,9 @@
 
 
 -- DimEmployee
-SELECT * FROM DimEmployee
+SELECT * FROM DimEmployee;
+
+select distinct Title from DimEmployee;
 
 -- 4 Cargos (Title):
 -- Sales Group Manager
@@ -37,5 +39,24 @@ SELECT
 		ELSE 0.02
 	END AS 'Bônus'
 FROM
-	DimEmployee
+	DimEmployee;
 
+
+
+SELECT
+	FirstName,
+	Title,
+	SalariedFlag,
+	CASE
+		WHEN Title = 'Sales Group Manager' THEN
+		CASE	
+			WHEN SalariedFlag = 1 THEN 0.3
+			ELSE 0.2
+		END
+		WHEN Title = 'Sales Region Manager' THEN 0.15
+		WHEN Title = 'Sales State Manager' THEN 0.07
+		ELSE 0.02
+	END AS 'Bônus'
+FROM
+	DimEmployee
+order by 'Bônus' desc;
