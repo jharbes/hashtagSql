@@ -14,6 +14,7 @@ SELECT
 		THEN 0.10 ELSE 0.00 END
 	+ CASE WHEN ProductSubCategoryName = 'Televisions' 
 		THEN 0.05 ELSE 0.00 END
+	as Desconto
 FROM DimProduct
 INNER JOIN DimProductSubcategory
 	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
