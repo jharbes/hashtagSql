@@ -203,3 +203,16 @@ Seu papel será realizar uma consulta à tabela DimCustomer e retornar 3 colunas:
 ‘Sorteio Mãe do Ano’, ‘Sorteio Pai do Ano’ e ‘Caminhão de Prêmios’.
 */
 
+select * from DimCustomer;
+
+select
+	FirstName as Nome,
+	Gender as Sexo,
+	TotalChildren as 'Quantidade Filhos',
+	EmailAddress as 'E-mail',
+	case
+		when TotalChildren > 0 and Gender='M' then 'Sorteio Pai do Ano'
+		when TotalChildren > 0 and Gender='F' then 'Sorteio Mãe do Ano'
+		else 'Caminhão de Prêmios'
+	end as 'Ação de Marketing'
+from DimCustomer;
