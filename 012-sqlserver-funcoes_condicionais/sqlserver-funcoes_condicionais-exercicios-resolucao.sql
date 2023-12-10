@@ -170,7 +170,7 @@ select * from DimProduct;
 
 select
 	ProductSubcategoryName,
-	round(avg(Weight)*100,2) as 'Peso Total da Subcategoria',
+	round(avg(Weight)*100,2) as 'Peso Total',
 	case
 		when avg(Weight)*100 is null then 'Sem transporte'
 		when avg(Weight)*100 < 1000 then 'Rota 1'
@@ -179,3 +179,27 @@ select
 from DimProduct
 left join DimProductSubcategory on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
 group by ProductSubcategoryName;
+
+
+
+
+/*
+5. O setor de marketing está com algumas ideias de ações para alavancar as vendas em 2021. Uma
+delas consiste em realizar sorteios entre os clientes da empresa.
+Este sorteio será dividido em categorias:
+
+‘Sorteio Mãe do Ano’: Nessa categoria vão participar todas as mulheres com filhos.
+‘Sorteio Pai do Ano’: Nessa categoria vão participar todos os pais com filhos.
+‘Caminhão de Prêmios’: Nessa categoria vão participar todas os demais clientes (homens e
+mulheres sem filhos).
+
+Seu papel será realizar uma consulta à tabela DimCustomer e retornar 3 colunas:
+
+- FirstName AS ‘Nome’
+- Gender AS ‘Sexo’
+- TotalChildren AS ‘Qtd. Filhos’
+- EmailAdress AS ‘E-mail’
+- Ação de Marketing: nessa coluna você deverá dividir os clientes de acordo com as categorias
+‘Sorteio Mãe do Ano’, ‘Sorteio Pai do Ano’ e ‘Caminhão de Prêmios’.
+*/
+
