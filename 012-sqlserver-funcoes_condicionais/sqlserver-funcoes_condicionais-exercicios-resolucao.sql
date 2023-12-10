@@ -229,9 +229,13 @@ Atenção: lembre-se que existem lojas que foram fechadas.
 
 select * from DimStore;
 
-select top(1)
+select
 	StoreName as Loja,
-	DATEDIFF(DAY,OpenDate,getdate()) as 'Tempo de Atividade'
+	OpenDate as 'Data de Abertura',
+	CloseDate as 'Data de fechamento',
+	case
+		when CloseDate is null then DATEDIFF(DAY,OpenDate,getdate())
+		else DATEDIFF(DAY,OpenDate,CloseDate)
+	end as 'Tempo de Atividade'
 from DimStore
-where CloseDate is null
-order by DATEDIFF(DAY,OpenDate,getdate()) desc;
+order by 'Tempo de Atividade' desc;
