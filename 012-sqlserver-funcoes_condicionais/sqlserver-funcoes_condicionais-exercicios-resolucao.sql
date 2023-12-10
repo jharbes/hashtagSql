@@ -226,3 +226,12 @@ consulta na tabela DimStore, e considerar a coluna OpenDate como referência para
 
 Atenção: lembre-se que existem lojas que foram fechadas.
 */
+
+select * from DimStore;
+
+select top(1)
+	StoreName as Loja,
+	DATEDIFF(DAY,OpenDate,getdate()) as 'Tempo de Atividade'
+from DimStore
+where CloseDate is null
+order by DATEDIFF(DAY,OpenDate,getdate()) desc;
