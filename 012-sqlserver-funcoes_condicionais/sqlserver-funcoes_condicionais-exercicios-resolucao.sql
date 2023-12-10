@@ -216,3 +216,13 @@ select
 		else 'Caminhão de Prêmios'
 	end as 'Ação de Marketing'
 from DimCustomer;
+
+
+
+
+/*
+6. Descubra qual é a loja que possui o maior tempo de atividade (em dias). Você deverá fazer essa
+consulta na tabela DimStore, e considerar a coluna OpenDate como referência para esse cálculo.
+
+Atenção: lembre-se que existem lojas que foram fechadas.
+*/
