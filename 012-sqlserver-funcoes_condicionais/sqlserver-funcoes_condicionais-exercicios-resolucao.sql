@@ -166,3 +166,16 @@ dos produtos por subcategoria.
 - Dica 3: Sua resposta final deverá ter um JOIN e um GROUP BY.
 */
 
+select * from DimProduct;
+
+select
+	ProductSubcategoryName,
+	round(avg(Weight)*100,2) as 'Peso Total da Subcategoria',
+	case
+		when avg(Weight)*100 is null then 'Sem transporte'
+		when avg(Weight)*100 < 1000 then 'Rota 1'
+		else 'Rota 2'
+	end as Rota
+from DimProduct
+left join DimProductSubcategory on DimProduct.ProductSubcategoryKey=DimProductSubcategory.ProductSubcategoryKey
+group by ProductSubcategoryName;
