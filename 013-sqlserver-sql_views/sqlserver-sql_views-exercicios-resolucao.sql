@@ -17,3 +17,44 @@ c) A partir da tabela DimStore, crie uma View mostrando StoreKey, StoreName e
 OpenDate. Chame essa View de vwLojas
 */
 
+-- a)
+
+go
+create view vwProdutos as
+select
+	ProductName,
+	ColorName,
+	UnitPrice,
+	UnitCost
+from DimProduct;
+go
+
+select * from vwProdutos;
+
+
+-- b)
+
+go
+create view vwFuncionarios as
+select
+	FirstName,
+	BirthDate,
+	DepartmentName
+from DimEmployee;
+go
+
+select * from vwFuncionarios;
+
+
+-- c)
+
+go
+create view vwLojas as
+select
+	StoreKey,
+	StoreName,
+	OpenDate
+from DimStore;
+go
+
+select * from vwLojas;
