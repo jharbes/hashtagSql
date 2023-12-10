@@ -58,3 +58,13 @@ from DimStore;
 go
 
 select * from vwLojas;
+
+
+
+
+/*
+2. Crie uma View contendo as informações de Nome Completo (FirstName +
+LastName), Gênero (por extenso), E-mail e Renda Anual (formatada com R$).
+Utilize a tabela DimCustomer. Chame essa View de vwClientes.
+*/
+
