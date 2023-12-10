@@ -5,5 +5,5 @@
 -- Exemplo: Exclua as views vwClientes e vwProdutos
 
 
-DROP VIEW vwProdutos
-DROP VIEW vwClientes
+DROP VIEW vwProdutos;
+DROP VIEW vwClientes;
