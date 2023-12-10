@@ -104,4 +104,14 @@ agrupamento deve considerar o SalesQuantity (Quantidade Total Vendida) por Nome 
 Produto. Chame esta View de vwTotalVendidoProdutos.
 
 OBS: Para isso, você terá que utilizar um JOIN para relacionar as tabelas FactSales e
-DimProduct.*/select top(10) * from FactSales;gocreate view vwTotalVendidoProdutos asselect	ProductName as 'Nome do Produto',	SUM(SalesQuantity) as 'Quantidade Total Vendida'from FactSalesleft join DimProduct on FactSales.ProductKey=DimProduct.ProductKeygroup by ProductName;goselect * from vwTotalVendidoProdutos;
+DimProduct.*/select top(10) * from FactSales;gocreate view vwTotalVendidoProdutos asselect	ProductName as 'Nome do Produto',	SUM(SalesQuantity) as 'Quantidade Total Vendida'from FactSalesleft join DimProduct on FactSales.ProductKey=DimProduct.ProductKeygroup by ProductName;goselect * from vwTotalVendidoProdutos;/*5. Faça as seguintes alterações nas tabelas da questão 1.
+
+a. Na View criada na letra a da questão 1, adicione a coluna de BrandName.
+b. Na View criada na letra b da questão 1, faça um filtro e considere apenas os
+funcionários do sexo feminino.
+c. Na View criada na letra c da questão 1, faça uma alteração e filtre apenas as lojas
+ativas. 
+*/
+
+-- a)
+
