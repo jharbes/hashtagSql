@@ -104,4 +104,4 @@ agrupamento deve considerar o SalesQuantity (Quantidade Total Vendida) por Nome 
 Produto. Chame esta View de vwTotalVendidoProdutos.
 
 OBS: Para isso, você terá que utilizar um JOIN para relacionar as tabelas FactSales e
-DimProduct.*/
+DimProduct.*/select top(10) * from FactSales;gocreate view vwTotalVendidoProdutos asselect	ProductName as 'Nome do Produto',	SUM(SalesQuantity) as 'Quantidade Total Vendida'from FactSalesleft join DimProduct on FactSales.ProductKey=DimProduct.ProductKeygroup by ProductName;goselect * from vwTotalVendidoProdutos;
