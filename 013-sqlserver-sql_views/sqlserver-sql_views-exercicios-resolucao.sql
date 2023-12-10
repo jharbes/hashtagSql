@@ -79,8 +79,24 @@ select
 		else 'Feminino'
 	end as 'Gênero',
 	EmailAddress as 'E-Mail',
-	CONCAT('R$ ',YearlyIncome) as 'Renda Anual'
+	FORMAT(YearlyIncome,'C') as 'Renda Anual'
 from DimCustomer;
 go
 
 select * from vwClientes;
+
+
+
+
+/*
+3. a) A partir da tabela DimStore, crie uma View que considera apenas as lojas ativas. Faça
+um SELECT de todas as colunas. Chame essa View de vwLojasAtivas.
+
+b) A partir da tabela DimEmployee, crie uma View de uma tabela que considera apenas os
+funcionários da área de Marketing. Faça um SELECT das colunas: FirstName, EmailAddress
+e DepartmentName. Chame essa de vwFuncionariosMkt.
+
+c) Crie uma View de uma tabela que considera apenas os produtos das marcas Contoso e
+Litware. Além disso, a sua View deve considerar apenas os produtos de cor Silver. Faça
+um SELECT de todas as colunas da tabela DimProduct. Chame essa View de
+vwContosoLitwareSilver.*/-- a)select * from DimStore;gocreate view vwLojasAtivas asselect 	*from DimStorewhere CloseDate is null;goselect * from vwLojasAtivas;-- b)gocreate view vwFuncionariosMkt asselect	FirstName,	EmailAddress,	DepartmentNamefrom DimEmployeewhere DepartmentName='Marketing';goselect * from vwFuncionariosMkt;-- c)gocreate view vwContosoLitwareSilver asselect	*from DimProductwhere BrandName in ('Contoso','Litware') and ColorName='Silver';goselect * from vwContosoLitwareSilver;
