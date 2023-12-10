@@ -68,3 +68,19 @@ LastName), Gênero (por extenso), E-mail e Renda Anual (formatada com R$).
 Utilize a tabela DimCustomer. Chame essa View de vwClientes.
 */
 
+select * from DimCustomer;
+
+go
+create view vwClientes as
+select 
+	CONCAT(FirstName, ' ', LastName) as 'Nome Completo',
+	case
+		when Gender='M' then 'Masculino'
+		else 'Feminino'
+	end as 'Gênero',
+	EmailAddress as 'E-Mail',
+	CONCAT('R$ ',YearlyIncome) as 'Renda Anual'
+from DimCustomer;
+go
+
+select * from vwClientes;
