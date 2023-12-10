@@ -115,3 +115,46 @@ ativas.
 
 -- a)
 
+go
+alter view vwProdutos as
+select
+	ProductName,
+	ColorName,
+	UnitPrice,
+	UnitCost,
+	BrandName
+from DimProduct;
+go
+
+select * from vwProdutos;
+
+
+-- b)
+
+go
+alter view vwFuncionarios as
+select
+	FirstName,
+	BirthDate,
+	DepartmentName,
+	Gender
+from DimEmployee
+where Gender='F';
+go
+
+select * from vwFuncionarios;
+
+
+-- c)
+
+go
+alter view vwLojas as
+select
+	StoreKey,
+	StoreName,
+	OpenDate
+from DimStore
+where CloseDate is null;
+go
+
+select * from vwLojas;
