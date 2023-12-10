@@ -175,3 +175,35 @@ c) Exclua a View vw_6a.
 
 -- a)
 
+select * from DimProduct;
+
+go
+create view vw_6a as
+select
+	BrandName as 'Marca',
+	COUNT(BrandName) as 'Total Produtos por Marca'
+from DimProduct
+group by BrandName;
+go
+
+select * from vw_6a;
+
+
+-- b)
+
+go
+alter view vw_6a as
+select
+	BrandName as 'Marca',
+	COUNT(BrandName) as 'Total Produtos por Marca',
+	SUM(Weight) as 'Peso Total por Marca'
+from DimProduct
+group by BrandName;
+go
+
+select * from vw_6a;
+
+
+-- c)
+
+drop view vw_6a;
