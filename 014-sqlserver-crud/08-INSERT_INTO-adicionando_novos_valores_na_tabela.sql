@@ -5,34 +5,25 @@
 -- Essa abela deve conter 4 colunas: id_produt, nome_produto, data_validade e preco_produto
 -- Certifique-se de que o tipo das colunas está correto.
 
-CREATE DATABASE BDImpressionador    -- Obs: Se você já criou o BD Impressionador não precisa executar esta linha
+CREATE DATABASE BDImpressionador;    -- Obs: Se você já criou o BD Impressionador não precisa executar esta linha
 
-USE BDImpressionador
+drop table Produtos;
 
 CREATE TABLE Produtos(
 	id_produto INT,
 	nome_produto VARCHAR(200),
 	data_validade DATETIME,
 	preco_produto FLOAT
-)
+);
 
-SELECT * FROM Produtos
+SELECT * FROM Produtos;
 
--- Adicionando valores de outra tabela
 
-INSERT INTO Produtos(id_produto, nome_produto, data_validade, preco_produto)
-SELECT
-	ProductKey,
-	ProductName,
-	AvailableForSaleDate,
-	UnitPrice
-FROM
-	ContosoRetailDW.dbo.DimProduct
 
 -- Adicionando novos valores na tabela
 
 INSERT INTO Produtos(id_produto, nome_produto, data_validade, preco_produto)
 VALUES
-	(1, 'Arroz', '2021-12-31', 22.50),
-	(2, 'Feijão', '2021-12-31', 8.99)
+	(1, 'Arroz', '31/12/2021', 22.50),
+	(2, 'Feijão', '20/11/2022', 8.99);
 
