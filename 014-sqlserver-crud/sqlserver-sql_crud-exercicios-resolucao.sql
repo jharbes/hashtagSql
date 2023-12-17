@@ -15,3 +15,12 @@ c) Crie um banco de dados chamado Exercicios.
 
 -- a)
 
+create database BD_Teste;
+
+-- b)
+
+drop database BD_Teste;
+
+-- c)
+
+create database Exercicios;
