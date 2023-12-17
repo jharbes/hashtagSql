@@ -49,6 +49,8 @@ DELETE
 FROM Produtos
 WHERE id_produto = 3
 
+
+
 -- Excluindo uma tabela
 
-DROP TABLE Produtos
+DROP TABLE Produtos;
