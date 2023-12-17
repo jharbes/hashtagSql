@@ -2,14 +2,14 @@
 -- Aula 13 de 21 - Código da tabela utilizada nos próximos exemplos
 
 
-USE BDImpressionador
+USE BDImpressionador;
 
 CREATE TABLE Funcionarios(
 	id_funcionario int,
 	nome_funcionario varchar(100),
 	salario float,
 	data_nascimento date
-)
+);
 
 INSERT INTO Funcionarios(id_funcionario, nome_funcionario, salario, data_nascimento)
 VALUES
@@ -22,6 +22,6 @@ VALUES
 	(7, 'Mateus'	, 1900, '02/11/1993'),
 	(8, 'Sandra'	, 3900, '09/05/1990'),
 	(9, 'André'		, 1000, '13/03/1994'),
-	(10, 'Julio'	, 4700, '05/07/1992')
+	(10, 'Julio'	, 4700, '05/07/1992');
 
-SELECT * FROM Funcionarios
+SELECT * FROM Funcionarios;
