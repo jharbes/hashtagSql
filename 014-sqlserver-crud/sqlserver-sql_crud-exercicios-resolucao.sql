@@ -158,3 +158,18 @@ insert into fContratos (ID_Contrato,Data_de_Assinatura,ID_Cliente,ID_Gerente,Val
 values (11,'10/12/2023',9,5,1000000);
 
 select * from fContratos;
+select * from dCliente;
+select * from dGerente;
+
+
+
+
+/*
+5. O contrato de ID igual a 4 foi registrado com alguns erros na tabela fContratos. Faça uma
+alteração na tabela atualizando os seguintes valores:
+
+Data_de_Assinatura: 17/03/2019
+ID_Gerente: 2
+Valor_do_Contrato: 33500
+*/
+
