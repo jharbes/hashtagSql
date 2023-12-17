@@ -5,18 +5,18 @@
 -- Essa abela deve conter 4 colunas: id_produt, nome_produto, data_validade e preco_produto
 -- Certifique-se de que o tipo das colunas está correto.
 
-CREATE DATABASE BDImpressionador    -- Obs: Se você já criou o BD Impressionador não precisa executar esta linha
+CREATE DATABASE BDImpressionador;  -- Obs: Se você já criou o BD Impressionador não precisa executar esta linha
 
-USE BDImpressionador
+USE BDImpressionador;
 
 CREATE TABLE Produtos(
 	id_produto INT,
 	nome_produto VARCHAR(200),
 	data_validade DATETIME,
 	preco_produto FLOAT
-)
+);
 
-SELECT * FROM Produtos
+SELECT * FROM Produtos;
 
 -- Adicionando valores de outra tabela
 
@@ -27,17 +27,19 @@ SELECT
 	AvailableForSaleDate,
 	UnitPrice
 FROM
-	ContosoRetailDW.dbo.DimProduct
+	ContosoRetailDW.dbo.DimProduct;
 
 -- Adicionando novos valores na tabela
 
 INSERT INTO Produtos(id_produto, nome_produto, data_validade, preco_produto)
 VALUES
 	(1, 'Arroz', '2021-12-31', 22.50),
-	(2, 'Feijão', '2021-12-31', 8.99)
+	(2, 'Feijão', '2021-12-31', 8.99);
+
+
 
 -- Atualizando o dado de uma tabela
-
+-- aqui vamos alterar o nome do produto na linha onde o id_produto=3
 UPDATE Produtos
 SET nome_produto = 'Macarrão'
-WHERE id_produto = 3
+WHERE id_produto = 3;
