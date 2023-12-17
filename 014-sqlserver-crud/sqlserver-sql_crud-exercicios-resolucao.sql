@@ -85,3 +85,15 @@ select * from dCliente;
 select * from dGerente;
 
 select * from fContratos;
+
+
+
+
+/*
+3. Em cada uma das 3 tabelas, adicione os seguintes valores:
+
+TABELA dCliente
+TABELA dGerente
+TABELA fContratos
+*/
+
