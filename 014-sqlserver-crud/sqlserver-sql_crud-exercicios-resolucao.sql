@@ -135,3 +135,26 @@ values
 	(10,'05/04/2019',6,2,9200);
 
 select * from fContratos;
+
+
+
+
+/*
+4. Novos dados deverão ser adicionados nas tabelas dCliente, dGerente e fContratos. Fique livre
+para adicionar uma nova linha em cada tabela contendo, respectivamente,
+
+(1) um novo cliente (id cliente, nome e data de nascimento)
+(2) um novo gerente (id gerente, nome, data de contratação e salário)
+(3) um novo contrato (id, data assinatura, id cliente, id gerente, valor do contrato)
+*/
+
+insert into dCliente (ID_Cliente,Nome_Cliente,Data_de_Nascimento)
+values (9,'Jorge Harbes','21/06/1983');
+
+insert into dGerente (ID_Gerente,Nome_Gerente,Data_de_Contratacao,Salario)
+values (5,'Ragnar Lothbrok','07/08/2006',25000);
+
+insert into fContratos (ID_Contrato,Data_de_Assinatura,ID_Cliente,ID_Gerente,Valor_do_Contrato)
+values (11,'10/12/2023',9,5,1000000);
+
+select * from fContratos;
