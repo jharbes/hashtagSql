@@ -181,3 +181,14 @@ where
 	ID_Contrato=4;
 
 select * from fContratos;
+
+
+
+
+/*
+6. Delete a linha da tabela fContratos que você criou na questão 4.
+*/
+
+delete fContratos where ID_Contrato=11;
+
+select * from fContratos;
