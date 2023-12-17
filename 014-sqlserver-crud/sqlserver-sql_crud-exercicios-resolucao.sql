@@ -173,3 +173,11 @@ ID_Gerente: 2
 Valor_do_Contrato: 33500
 */
 
+update fContratos set
+	Data_de_Assinatura='17/03/2019',
+	ID_Gerente=2,
+	Valor_do_Contrato=33500
+where
+	ID_Contrato=4;
+
+select * from fContratos;
