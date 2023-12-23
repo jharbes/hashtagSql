@@ -4,9 +4,12 @@
 
 -- Exemplo 3: Filtre a tabela FactSales e mostre apenas as vendas referentes às lojas com 100 ou mais funcionários
 
+-- nesse caso utilizaremos todos os resultados da coluna ÚNICA resultado da subquery (mais de um resultado)
+-- por isso o IN nos dá suporte para mais de um resultado
+-- caso so houvesse um resultado o normal seria usar o igual (=)
 SELECT * FROM FactSales
 WHERE StoreKey IN (
 	SELECT	StoreKey
 	FROM DimStore
 	WHERE EmployeeCount >= 100
-)
+);
