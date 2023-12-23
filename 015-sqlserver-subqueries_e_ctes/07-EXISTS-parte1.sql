@@ -5,9 +5,23 @@
 -- 2517 - 1724 = 793
 
 -- Conta a quantidade de Produtos
-SELECT COUNT(*) FROM DimProduct
+SELECT COUNT(*) FROM DimProduct;
+
+
+select distinct
+	DimProduct.ProductKey,
+	ProductName
+from
+	DimProduct
+left join FactSales on DimProduct.ProductKey=FactSales.ProductKey
+where FactSales.DateKey='01/01/2007';
+
+
 
 -- Retorna uma tabela com todos os produtos que possuem alguma venda
+-- o exists retorna apenas se existe para aquele produto a venda, ou seja
+-- funciona como um distinct retornando apenas um valor mesmo que existam 
+-- varias vendas para aquele produto
 
 SELECT
 	ProductKey,
@@ -22,7 +36,7 @@ WHERE EXISTS(
 	WHERE
 		DateKey = '01/01/2007'
 		AND factSales.ProductKey = DimProduct.ProductKey
-)
+);
 
 
 -- Solução alternativa com o ANY
@@ -40,4 +54,4 @@ WHERE ProductKey = ANY(
 	WHERE
 		DateKey = '01/01/2007'
 		-- AND factSales.ProductKey = DimProduct.ProductKey
-)
+);
