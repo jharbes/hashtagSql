@@ -4,10 +4,10 @@
 
 -- Exemplo 1: Quais produtos da tabela DimProduct possuem custos acima da média?
 
-SELECT AVG(UnitCost) FROM DimProduct     -- 147.6555
+SELECT AVG(UnitCost) FROM DimProduct;     -- 147.6555
 
 SELECT
 	*
 FROM
 	DimProduct
-WHERE UnitCost >= (SELECT AVG(UnitCost) FROM DimProduct)
+WHERE UnitCost >= (SELECT AVG(UnitCost) FROM DimProduct);
