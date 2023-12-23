@@ -15,18 +15,33 @@ Junto com o FROM, como uma nova tabela
 Ex:
 
 Imagina que eu quero selecionar os produtos com o Preço maior do que a média.
+*/
 
 SELECT
 	*
 FROM
-	Produtos
-WHERE Preço > 10.5
+	DimProduct
+WHERE UnitPrice > 10.5;
+
+-- ** consulta errada:
+SELECT
+	*
+FROM
+	DimProduct
+WHERE UnitPrice > AVG(UnitPrice);
+
+-- ** consulta certa:
+SELECT
+	*
+FROM
+	DimProduct
+WHERE UnitPrice > (SELECT AVG(UnitPrice) FROM DimProduct);
 
 
-SELECT AVG(Preço) FROM Produtos
+SELECT AVG(UnitPrice) FROM DimProduct;
 
 
-
+/*
 3. Onde usamos uma subquery?
 
 Em 4 situações possíveis:
@@ -66,5 +81,5 @@ SELECT
 	Coluna1,
 	Coluna2
 FROM
-	(SELECT) AS T
+	(SELECT) AS T -- (observe que é necessario a aliases para dar nome à "tabela" do SELECT da subquery
 */
