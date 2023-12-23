@@ -8,4 +8,4 @@
 SELECT * FROM DimProduct
 WHERE ProductSubcategoryKey = 
 	(SELECT ProductSubcategoryKey FROM DimProductSubcategory
-		WHERE ProductSubcategoryName = 'Televisions')
+		WHERE ProductSubcategoryName = 'Televisions');
