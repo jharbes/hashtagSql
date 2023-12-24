@@ -40,6 +40,7 @@ WHERE EXISTS(
 
 
 -- Solução alternativa com o ANY
+-- o ANY nesse caso funcionara como um distinct tambem
 
 SELECT
 	ProductKey,
