@@ -4,11 +4,11 @@
 
 SELECT * FROM DimCustomer
 WHERE CustomerType = 'Person'
-ORDER BY YearlyIncome DESC
+ORDER BY YearlyIncome DESC;
 
 SELECT DISTINCT TOP(2) YearlyIncome FROM DimCustomer
 WHERE CustomerType = 'Person'
-ORDER BY YearlyIncome DESC
+ORDER BY YearlyIncome DESC;
 
 SELECT
 	CustomerKey,
@@ -16,7 +16,8 @@ SELECT
 	LastName,
 	YearlyIncome
 FROM DimCustomer
-WHERE YearlyIncome = 160000
+WHERE YearlyIncome = 160000;
+
 
 
 --1. Descobrir o maior salário
@@ -36,11 +37,11 @@ WHERE YearlyIncome = (
 		MAX(YearlyIncome)
 	FROM DimCustomer
 	WHERE
-		YearlyIncome < (
+		YearlyIncome < (   -- essa query descobre o maior salario que é MENOR que o maior salario (abaixo)
 			SELECT 
 				MAX(YearlyIncome) 
 			FROM DimCustomer	
-			WHERE CustomerType = 'Person'
+			WHERE CustomerType = 'Person' -- essa query descobre o maior salario
 	)
-)
+);
 
