@@ -53,3 +53,15 @@ select
 from
 	DimEmployee
 where DepartmentName=(select DepartmentName from DimEmployee where FirstName='Miguel' and LastName='Severino');
+
+
+
+
+/*
+4. Faça uma query que retorne os clientes que recebem um salário anual acima da média. A sua
+query deve retornar as colunas CustomerKey, FirstName, LastName, EmailAddress e
+YearlyIncome.
+
+Obs: considere apenas os clientes que são 'Pessoas Físicas'.
+*/
+
