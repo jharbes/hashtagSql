@@ -13,8 +13,10 @@ WITH cte(Marca, Total) AS (
 )
 
 
+-- select avg(total) from cte;
+
 SELECT
 	Marca,
 	Total
 FROM
-	cte
+	cte;
