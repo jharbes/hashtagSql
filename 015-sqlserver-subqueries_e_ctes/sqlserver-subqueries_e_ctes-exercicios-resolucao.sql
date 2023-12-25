@@ -65,3 +65,12 @@ YearlyIncome.
 Obs: considere apenas os clientes que são 'Pessoas Físicas'.
 */
 
+select
+	CustomerKey,
+	FirstName,
+	LastName,
+	EmailAddress,
+	YearlyIncome
+from
+	DimCustomer
+where YearlyIncome > (select AVG(YearlyIncome) from DimCustomer where CustomerType='Person');
