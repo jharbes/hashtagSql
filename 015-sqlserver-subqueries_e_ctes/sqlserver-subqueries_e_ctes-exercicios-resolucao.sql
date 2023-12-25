@@ -87,3 +87,10 @@ produtos com essa promoção.
 Seu trabalho é criar uma query que retorne a lista de clientes que compraram nessa promoção.
 */
 
+select distinct
+	DimCustomer.CustomerKey,
+	CONCAT(FirstName,' ',LastName) as 'Customer Name'
+from FactOnlineSales
+left join DimCustomer on DimCustomer.CustomerKey=FactOnlineSales.CustomerKey
+where PromotionKey in (select PromotionKey from DimPromotion where PromotionName='Asian Holiday Promotion');
+
