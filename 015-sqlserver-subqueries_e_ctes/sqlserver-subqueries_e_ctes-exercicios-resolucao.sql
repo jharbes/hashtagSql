@@ -235,13 +235,9 @@ with CTE_ProdutosAdventureWorks as (
 )
 
 select
-	ProductKey,
-	ProductName,
-	CTE_ProdutosAdventureWorks.ProductSubcategoryKey,
-	ProductSubcategoryName,
-	BrandName,
-	UnitPrice
+	CTE_ProdutosAdventureWorks.*,
+	ProductSubcategoryName
 from
 	CTE_ProdutosAdventureWorks
-left join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
--- inner join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
+-- left join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
+inner join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
