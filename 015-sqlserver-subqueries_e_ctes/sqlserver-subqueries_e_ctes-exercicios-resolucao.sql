@@ -73,4 +73,5 @@ select
 	YearlyIncome
 from
 	DimCustomer
-where YearlyIncome > (select AVG(YearlyIncome) from DimCustomer where CustomerType='Person');
+where YearlyIncome > (select AVG(YearlyIncome) from DimCustomer where CustomerType='Person')
+	and CustomerType='Person';
