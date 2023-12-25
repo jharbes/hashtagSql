@@ -155,6 +155,18 @@ select
 	ProductName,
 	BrandName,
 	UnitPrice,
-	(ROUND((select AVG(UnitPrice) from DimProduct),2)) as 'Average UnitPrice'
+	ROUND((select AVG(UnitPrice) from DimProduct),2) as 'Average UnitPrice'
 from
 	DimProduct;
+
+
+
+
+/*
+8. Faça uma consulta para descobrir os seguintes indicadores dos seus produtos:
+
+Maior quantidade de produtos por marca
+Menor quantidade de produtos por marca
+Média de produtos por marca
+*/
+
