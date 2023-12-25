@@ -118,3 +118,20 @@ compras.
 Você deverá descobrir as informações de CustomerKey e CompanyName destes clientes.
 */
 
+select
+	CustomerKey,
+	CompanyName
+from
+	DimCustomer
+where CustomerKey in (
+	select
+		CustomerKey
+	from 
+		FactOnlineSales
+	where
+		CustomerKey in (select CustomerKey from DimCustomer where CustomerType='Company')
+	group by
+		CustomerKey,ProductKey
+	having
+		SUM(SalesQuantity)>3000
+);
