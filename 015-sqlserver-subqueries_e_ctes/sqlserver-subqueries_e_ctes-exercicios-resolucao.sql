@@ -135,3 +135,18 @@ where CustomerKey in (
 	having
 		SUM(SalesQuantity)>3000
 );
+
+
+
+
+/*
+7. Você deverá criar uma consulta para o setor de vendas que mostre as seguintes colunas da
+tabela DimProduct:
+
+ProductKey,
+ProductName,
+BrandName,
+UnitPrice
+Média de UnitPrice.
+*/
+
