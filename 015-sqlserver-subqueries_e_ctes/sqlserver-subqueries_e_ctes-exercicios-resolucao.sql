@@ -94,3 +94,27 @@ from FactOnlineSales
 left join DimCustomer on DimCustomer.CustomerKey=FactOnlineSales.CustomerKey
 where PromotionKey in (select PromotionKey from DimPromotion where PromotionName='Asian Holiday Promotion');
 
+-- ou
+
+select
+	DimCustomer.CustomerKey,
+	CONCAT(FirstName,' ',LastName) as 'Customer Name'
+from DimCustomer
+where CustomerKey in (
+	select
+		CustomerKey
+	from
+		FactOnlineSales
+	where PromotionKey in (select PromotionKey from DimPromotion where PromotionName='Asian Holiday Promotion'));
+
+
+
+
+/*
+6. A empresa implementou um programa de fidelização de clientes empresariais. Todos aqueles
+que comprarem mais de 3000 unidades de um mesmo produto receberá descontos em outras
+compras.
+
+Você deverá descobrir as informações de CustomerKey e CompanyName destes clientes.
+*/
+
