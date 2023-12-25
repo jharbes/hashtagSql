@@ -170,3 +170,9 @@ Menor quantidade de produtos por marca
 Média de produtos por marca
 */
 
+select
+	MAX(Quantidade) as 'Maior quantidade de produtos por marca',
+	MIN(Quantidade) as 'Menor quantidade de produtos por marca',
+	AVG(Quantidade) as 'Média de produtos por marca'
+from
+	(select COUNT(ProductKey) as Quantidade from DimProduct group by BrandName) as T;
