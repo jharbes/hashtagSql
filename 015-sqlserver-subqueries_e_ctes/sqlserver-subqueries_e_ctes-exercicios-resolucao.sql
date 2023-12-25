@@ -9,4 +9,4 @@ referentes à loja ‘Contoso Orlando Store’. Isso porque essa loja encontra-se em 
 a tributação foi modificada recente.
 
 Portanto, crie uma consulta ao Banco de Dados para obter uma tabela FactSales contendo todas
-as vendas desta loja.*/
+as vendas desta loja.*/select	*from	FactSaleswhere StoreKey=(select StoreKey from DimStore where StoreName='Contoso Orlando Store');
