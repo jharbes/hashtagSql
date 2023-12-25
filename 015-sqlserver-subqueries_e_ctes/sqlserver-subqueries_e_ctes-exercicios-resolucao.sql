@@ -186,3 +186,12 @@ produtos por marca. Em seguida, faça um SELECT nesta CTE, descobrindo qual é a q
 máxima de produtos para uma marca. Chame esta CTE de CTE_QtdProdutosPorMarca.
 */
 
+with CTE_QtdProdutosPorMarca as (
+	select
+		COUNT(ProductKey) as qt_produtos_marca
+	from
+		DimProduct
+	group by BrandName
+)
+
+select MAX(qt_produtos_marca) as 'Máximo Produtos por Marca' from CTE_QtdProdutosPorMarca;
