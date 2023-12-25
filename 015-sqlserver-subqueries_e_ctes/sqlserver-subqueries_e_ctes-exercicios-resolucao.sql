@@ -21,3 +21,12 @@ produto 1893.
 
 -- a)
 
+select
+	ProductKey,
+	ProductName,
+	UnitPrice,
+	(select UnitPrice from DimProduct where ProductKey=1893) as 'UnitPrice ProductKey 1893'
+from
+	DimProduct
+where UnitPrice>(select UnitPrice from DimProduct where ProductKey=1893);
+
