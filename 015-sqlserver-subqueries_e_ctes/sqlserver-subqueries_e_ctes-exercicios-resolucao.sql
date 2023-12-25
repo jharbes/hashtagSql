@@ -214,3 +214,34 @@ Faça um Join entre essas duas CTEs, e o resultado deve ser uma query contendo to
 das duas tabelas. Observe nesse exemplo a diferença entre o LEFT JOIN e o INNER JOIN.
 */
 
+with CTE_ProdutosAdventureWorks as (
+	select
+		ProductKey,
+		ProductName,
+		ProductSubcategoryKey,
+		BrandName,
+		UnitPrice
+	from
+		DimProduct
+	where BrandName='Adventure Works'
+), 
+	CTE_CategoriaTelevisionsERadio as (
+	select
+		ProductSubcategoryKey,
+		ProductSubcategoryName
+	from
+		DimProductSubcategory
+	where ProductSubcategoryName in ('Televisions','Monitors')
+)
+
+select
+	ProductKey,
+	ProductName,
+	CTE_ProdutosAdventureWorks.ProductSubcategoryKey,
+	ProductSubcategoryName,
+	BrandName,
+	UnitPrice
+from
+	CTE_ProdutosAdventureWorks
+left join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
+-- inner join CTE_CategoriaTelevisionsERadio on CTE_CategoriaTelevisionsERadio.ProductSubcategoryKey=CTE_ProdutosAdventureWorks.ProductSubcategoryKey;
