@@ -150,3 +150,11 @@ UnitPrice
 Média de UnitPrice.
 */
 
+select
+	ProductKey,
+	ProductName,
+	BrandName,
+	UnitPrice,
+	(ROUND((select AVG(UnitPrice) from DimProduct),2)) as 'Average UnitPrice'
+from
+	DimProduct;
