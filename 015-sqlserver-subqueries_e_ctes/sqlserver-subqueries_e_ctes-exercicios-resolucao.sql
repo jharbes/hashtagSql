@@ -48,3 +48,8 @@ O seu objetivo é realizar uma consulta à tabela DimEmployee e retornar todos os 
 da área “vencedora” para que o setor Financeiro possa realizar os pagamentos das bonificações.
 */
 
+select
+	*
+from
+	DimEmployee
+where DepartmentName=(select DepartmentName from DimEmployee where FirstName='Miguel' and LastName='Severino');
